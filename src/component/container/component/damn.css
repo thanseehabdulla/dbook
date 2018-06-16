@@ -1,0 +1,207 @@
+.overallpaddinglogin{
+    /*padding: 20px 140px;*/
+    margin: 0px 340px;
+}
+
+
+
+
+
+.button {
+    background-color: #13af36; /* Green */
+    border: none;
+    color: white;
+    border-radius:5% ;
+    padding: 15px 132px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+
+.carousel-caption{
+    bottom:58%;
+}
+
+
+.loginBtn{
+    border: 1px solid;
+    border-radius: 100px;
+    color: #333;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+    padding:10px 30px;
+    margin-top: 20px;
+}
+
+.loginBtn1{
+    border: 1px solid;
+    border-radius: 100px;
+    color: #fff;
+    background-color: #ff8c00;
+    border-color: #ff8c00;
+    padding:10px 30px;
+    margin-top: 20px;
+}
+
+.loginBtn1:hover{
+    color: #fff;
+    background-color: #3EC1D5;
+    border-color: #3ec1d5;
+}
+
+
+.loginBtn:hover{
+    color: #fff;
+    background-color: #3EC1D5;
+    border-color: #3ec1d5;
+}
+
+.carous {
+    max-height:500px;
+    background-size: cover;
+
+}
+.carous:after{
+    background-image: linear-gradient(180deg,#000,#471e23,#8b3630,#cb5a2c,#ff8c00);
+}
+
+.btnlog{
+    position: absolute;
+    margin-top:10px;
+}
+
+.loginCon{
+    margin-top:10px;
+}
+
+.form-control {
+    border-width: 2px;
+}
+.btn.btn-rounded, .form-control-rounded {
+    border-radius: 100px;
+}
+.form-control-lg, .input-group-lg>.form-control, .input-group-lg>.input-group-addon, .input-group-lg>.input-group-btn>.btn {
+    padding: .5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border-radius: .3rem;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 2rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-image: none;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+button, input {
+    overflow: visible;
+}
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.h-100 {
+    height: 100%!important;
+}
+
+
+input, textarea, select, button {
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+
+.btn.btn-rounded, .form-control-rounded {
+    border-radius: 100px;
+}
+.btn-orange {
+    color: #111;
+    background-color: #ff8c00;
+    border-color: #ff8c00;
+}
+.text-white {
+    color: #fff!important;
+}
+.btn-block {
+    display: block;
+    width: 100%;
+}
+.btn-group-lg>.btn, .btn-lg {
+    padding: .5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border-radius: .3rem;
+}
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 2rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.logpadding{
+    padding:122px;
+}
+
+@media only screen and (max-width: 800px) {
+    .overallpaddinglogin{
+        /*padding: 20px 140px;*/
+        margin: 0px 30px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .overallpaddinglogin{
+        /*padding: 20px 140px;*/
+        margin: 0px 5px;
+    }
+    .carousel-caption{
+        bottom:21%;
+    }
+    .headerfont{
+        display:none;
+    }
+    .btnlog{
+        position: relative;
+        margin-top:10px;
+    }
+    .loginCon{
+        margin-top:10px;
+    }
+    .logpadding{
+        padding:122px 40px;
+    }
+}
