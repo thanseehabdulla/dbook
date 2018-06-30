@@ -92,7 +92,7 @@ function* workerGetSalesDataSaga() {
             url: API.SALES_API
         }
         const response = yield call(REQUEST.getData, body);
-        const data = response;
+        const data = response.data;
 
         // dispatch a success action to the store with the new dog
         // yield put({ type: "API_CALL_SUCCESS", data });
