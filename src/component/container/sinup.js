@@ -3,7 +3,7 @@ import './App.css';
 import Topbar from './component/topbar'
 import Footer from "./component/footer";
 import Signup from "./component/signup";
-import 'react-notifications/lib/notifications.css';
+
 
 
 export default class Sinup extends Component {
