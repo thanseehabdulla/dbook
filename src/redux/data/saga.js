@@ -43,6 +43,9 @@ function* workerLoginSaga(payload) {
             localStorage.setItem('logged','user')
         } else {
             console.log('sucess failure')
+            yield put({
+                type: DATA_ACTIONS.LOGIN_FAILURE,
+            });
         }
 
 
@@ -92,7 +95,7 @@ function* workerGetSalesDataSaga() {
             url: API.SALES_API
         }
         const response = yield call(REQUEST.getData, body);
-        const data = response.data;
+        const data = response;
 
         // dispatch a success action to the store with the new dog
         // yield put({ type: "API_CALL_SUCCESS", data });
@@ -178,6 +181,9 @@ function* workerRegisterSaga(payload) {
                 token: 'loggedin'
             });
             console.log('sucess register')
+            yield put({
+                type: DATA_ACTIONS.ADD,
+            });
         } else {
             console.log('sucess failure')
         }
@@ -217,6 +223,9 @@ function* workerRegisterPurchaseSaga(payload) {
                 type: DATA_ACTIONS.REGISTER_SUCCESS,
 
             });
+            yield put({
+                type: DATA_ACTIONS.ADD,
+            });
             console.log('sucess register')
         } else {
             console.log('sucess failure')
@@ -254,6 +263,9 @@ function* workerRegisterSalesSaga(payload) {
         if (data === 'success') {
             yield put({
                 type: DATA_ACTIONS.REGISTER_SUCCESS,
+            });
+            yield put({
+                type: DATA_ACTIONS.ADD,
             });
             console.log('sucess register')
         } else {

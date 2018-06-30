@@ -2,11 +2,12 @@ import React, {Component} from 'react';
 import './damn.css'
 import {DATA_ACTIONS} from './../../../redux/data/actions';
 import {connect} from "react-redux";
+import { Spin } from 'antd';
 const { register_purchase } = DATA_ACTIONS;
 
 class PurchaseAdd extends Component {
+    state = {spin:false}
 
-   state = {}
 
 
 
@@ -30,6 +31,10 @@ class PurchaseAdd extends Component {
             invoice_number: this.state.invoice_number,
             total: this.state.total
         }
+
+        this.setState({
+            spin : true
+        })
 
         let {register_purchase} = this.props;
         register_purchase(data);
@@ -90,6 +95,7 @@ class PurchaseAdd extends Component {
                     </div>
 
                 </div>
+                {this.state.spin && <Spin />}
                 <button className="btn btn-orange btn-block text-white btn-lg btn-rounded ld-ext-right" onClick={this.register.bind(this)}>Add Purchase</button>
             </div>
         );

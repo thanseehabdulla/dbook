@@ -5,11 +5,20 @@ import {connect} from 'react-redux';
 
 import {Redirect, withRouter} from 'react-router-dom';
 import a from './../../../images/elogo.jpeg'
+import { Button, notification } from 'antd';
+import 'antd/dist/antd.css'
+const {login,reset} = DATA_ACTIONS;
 
-const {login} = DATA_ACTIONS;
+
 
 class Login extends Component {
 
+    openNotification = (message,status) => {
+        notification.open({
+            message: message,
+            description: status,
+        });
+    };
 
     componentWillMount() {
         if(localStorage.getItem('logged') === "admin"){
@@ -45,6 +54,7 @@ class Login extends Component {
         if (this.state.username === 'admin' && this.state.password === 'admin123') {
             const from = {pathname: '/admindashboard'};
             localStorage.setItem('logged','admin')
+            this.openNotification('Login Successful','Welcome');
             this.props.history.push('/admindashboard');
         } else {
             let {login} = this.props;
@@ -58,6 +68,16 @@ class Login extends Component {
     render() {
 
         const from = {pathname: '/dashboard'};
+
+        if(this.props.isLoggedIn)
+            this.openNotification('Login Successful','Welcome');
+
+        if(this.props.failed) {
+            this.openNotification('Login Failed', 'Try Again');
+            let {reset} = this.props;
+            reset();
+        }
+
         return (
             <div className="App overallpaddinglogin"
                  style={{borderTop: '0px silver solid', borderBottom: '0px silver solid', borderRadius: '5%'}}>
@@ -101,7 +121,8 @@ class Login extends Component {
 
 export default withRouter(connect(
     state => ({
-        isLoggedIn: state.data.get('isLoggedIn')
+        isLoggedIn: state.data.get('isLoggedIn'),
+        failed: state.data.get('failed')
     }),
-    {login}
+    {login,reset}
 )(Login));

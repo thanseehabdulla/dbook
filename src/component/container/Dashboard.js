@@ -5,6 +5,10 @@ import HomeApp1 from './user/dashboard'
 import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import {Animated} from "react-animated-css";
+import {DATA_ACTIONS} from "../../redux/data/actions";
+import { Button, notification } from 'antd';
+import 'antd/dist/antd.css'
+const {addreset} = DATA_ACTIONS;
 class Dashboard extends Component {
 
     // componentDidMount() {
@@ -13,10 +17,23 @@ class Dashboard extends Component {
     //     }
     // }
 
-
+    openNotification = (message,status) => {
+        notification.open({
+            message: message,
+            description: status,
+        });
+    };
 
 
     render() {
+
+        if(this.props.add) {
+            this.openNotification('Insertion Successful', '');
+            let {addreset} = this.props;
+            addreset();
+            this.props.history.push('/');
+        }
+
         return (
             <div className="">
                 <Animated animationIn="fadeInLeft" animationOut="fadeOut" isVisible={true}>
@@ -33,6 +50,6 @@ class Dashboard extends Component {
 
 export default withRouter(connect(
     state => ({
-
-    })
+        add: state.data.get('add')
+    }),{addreset}
 )(Dashboard));

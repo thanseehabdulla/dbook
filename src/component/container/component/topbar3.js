@@ -2,13 +2,17 @@ import React, {Component} from 'react';
 import './topbar.css'
 import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
+import {DATA_ACTIONS} from "../../../redux/data/actions";
 
+const {logout} = DATA_ACTIONS;
 
 
 class Topbar extends Component {
 
     logout(){
         localStorage.setItem('logged','null')
+        let {logout} = this.props;
+        logout();
         this.props.history.push('/');
     }
 
@@ -57,5 +61,6 @@ class Topbar extends Component {
 export default withRouter(connect(
     state => ({
 
-    })
+    }),
+    {logout}
 )(Topbar));
