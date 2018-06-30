@@ -60,7 +60,7 @@ function* workerGetDataSaga() {
             url: API.USER_API
         }
         const response = yield call(REQUEST.getData, body);
-        const data = response;
+        const data = response.data;
 
         // dispatch a success action to the store with the new dog
         // yield put({ type: "API_CALL_SUCCESS", data });
@@ -125,7 +125,7 @@ function* workerGetPurchaseDataSaga() {
             url: API.PURCHASE_API
         }
         const response = yield call(REQUEST.getData, body);
-        const data = response;
+        const data = response.data;
 
         // dispatch a success action to the store with the new dog
         // yield put({ type: "API_CALL_SUCCESS", data });

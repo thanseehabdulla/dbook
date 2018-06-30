@@ -42,49 +42,49 @@ class PurchaseAdd extends Component {
 
                         <div className="row form-group">
                             <div className="input-field col s12">
-                                <input name="vendername" placeholder="vendername" onBlur={this.changeValue.bind(this)} type="text" className="form-control form-control-lg form-control-rounded "/>
+                                <input name="vendername" placeholder="vendername" onBlur={this.changeValue.bind(this)} type="text" className="form-control form-control-lg  "/>
                                     {/*<label htmlFor="first_name">First Name</label>*/}
                             </div>
 
                         </div>
                     <div className="row form-group">
                         <div className="input-field col s12">
-                            <input name="trn_no" placeholder="trn no" onBlur={this.changeValue.bind(this)}  type="number" className="form-control form-control-lg form-control-rounded"/>
+                            <input name="trn_no" placeholder="trn no" onBlur={this.changeValue.bind(this)}  type="number" className="form-control form-control-lg "/>
                             {/*<label htmlFor="password">Password</label>*/}
                         </div>
                     </div>
 
                     <div className="row form-group">
                         <div className="input-field col s12">
-                            <input name="date_invoice" placeholder="date invoice" onBlur={this.changeValue.bind(this)}  type="text" className="form-control form-control-lg form-control-rounded"/>
+                            <input name="date_invoice" placeholder="date invoice" onBlur={this.changeValue.bind(this)}  type="text" className="form-control form-control-lg "/>
                             {/*<label htmlFor="password">Password</label>*/}
                         </div>
                     </div>
 
                     <div className="row form-group">
                         <div className="input-field col s12">
-                            <input name="amount" placeholder="amount" onBlur={this.changeValue.bind(this)}  type="number" className="form-control form-control-lg form-control-rounded"/>
+                            <input name="amount" placeholder="amount" onBlur={this.changeValue.bind(this)}  type="number" className="form-control form-control-lg "/>
                             {/*<label htmlFor="password">Password</label>*/}
                         </div>
                     </div>
 
                     <div className="row form-group">
                         <div className="input-field col s12">
-                            <input name="vat" placeholder="vat" onBlur={this.changeValue.bind(this)}  type="number" className="form-control form-control-lg form-control-rounded"/>
+                            <input name="vat" placeholder="vat" onBlur={this.changeValue.bind(this)}  type="number" className="form-control form-control-lg "/>
                             {/*<label htmlFor="password">Password</label>*/}
                         </div>
                     </div>
 
                     <div className="row form-group">
                         <div className="input-field col s12">
-                            <input name="total" placeholder="total" onBlur={this.changeValue.bind(this)}  type="number" className="form-control form-control-lg form-control-rounded"/>
+                            <input name="total" placeholder="total" onBlur={this.changeValue.bind(this)}  type="number" className="form-control form-control-lg "/>
                             {/*<label htmlFor="password">Password</label>*/}
                         </div>
                     </div>
 
                     <div className="row form-group">
                         <div className="input-field col s12">
-                            <input name="invoice_number" placeholder="invoice_number" onBlur={this.changeValue.bind(this)}  type="text" className="form-control form-control-lg form-control-rounded"/>
+                            <input name="invoice_number" placeholder="invoice_number" onBlur={this.changeValue.bind(this)}  type="text" className="form-control form-control-lg "/>
                             {/*<label htmlFor="password">Password</label>*/}
                         </div>
                     </div>

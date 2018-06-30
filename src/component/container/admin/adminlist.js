@@ -23,7 +23,7 @@ class Adminlist extends Component {
 
         return (
             <div className="App overallpaddinglogin" style={{marginTop:'30px'}}>
-                {datas && <div style={{padding:'10px 60px'}}><BootstrapTable data={datas} striped hover pagination keyBoardNav >
+                {datas && <div style={{padding:'0pxx'}}><BootstrapTable data={datas} striped hover pagination keyBoardNav >
                     <TableHeaderColumn isKey dataField='name' filter={ { type: 'TextFilter', delay: 1000 } }>Name</TableHeaderColumn>
                     <TableHeaderColumn dataField='email' filter={ { type: 'TextFilter', delay: 1000 } }>Email</TableHeaderColumn>
                     <TableHeaderColumn dataField='username' filter={ { type: 'TextFilter', delay: 1000 } }>Username</TableHeaderColumn>

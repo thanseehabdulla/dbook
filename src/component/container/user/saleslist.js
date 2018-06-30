@@ -28,8 +28,10 @@ class Saleslist extends Component {
 
         return (
             <div className="App overallpaddinglogin" style={{marginTop:'30px'}}>
-                {datas && <div style={{padding:'10px 60px'}}><BootstrapTable data={datas} striped hover pagination keyBoardNav >
-                    <TableHeaderColumn isKey dataField='id' filter={ { type: 'TextFilter', delay: 1000 } }>Id</TableHeaderColumn>
+                {datas && <div style={{padding:'0px'}}><BootstrapTable data={datas} striped hover pagination keyBoardNav exportCSV data={ datas }
+                                                                       tableHeaderClass='my-header-class'
+                                                                       tableBodyClass='my-body-class'>
+                    <TableHeaderColumn isKey dataField='id' filter={ { type: 'TextFilter', delay: 1000 } } columnClassName='td-header-string-example'>Id</TableHeaderColumn>
                     <TableHeaderColumn dataField='date' filter={ { type: 'TextFilter', delay: 1000 } }>Date</TableHeaderColumn>
                     <TableHeaderColumn dataField='item_sold' filter={ { type: 'TextFilter', delay: 1000 } }>Item Sold</TableHeaderColumn>
                     <TableHeaderColumn dataField='gross_sales' filter={ { type: 'TextFilter', delay: 1000 } }>Gross Sales</TableHeaderColumn>
@@ -38,19 +40,19 @@ class Saleslist extends Component {
                 </BootstrapTable></div>
                 }
 
-                {datas && <ExcelFile element={<button>Download Excel Data</button>}>
-                    <ExcelSheet data={datas} name="purchase">
-                        <ExcelColumn label="id" value="id"/>
-                        <ExcelColumn label="date" value="date"/>
-                        <ExcelColumn label="item sold" value="item_sold"/>
-                        <ExcelColumn label="gross sales"
-                                     value="gross_sales"/>
-                        <ExcelColumn label="tax" value="tax"/>
-                        <ExcelColumn label="net sales" value="net_sales"/>
+                {/*{datas && <ExcelFile element={<button>Download Excel Data</button>}>*/}
+                    {/*<ExcelSheet data={datas} name="purchase">*/}
+                        {/*<ExcelColumn label="id" value="id"/>*/}
+                        {/*<ExcelColumn label="date" value="date"/>*/}
+                        {/*<ExcelColumn label="item sold" value="item_sold"/>*/}
+                        {/*<ExcelColumn label="gross sales"*/}
+                                     {/*value="gross_sales"/>*/}
+                        {/*<ExcelColumn label="tax" value="tax"/>*/}
+                        {/*<ExcelColumn label="net sales" value="net_sales"/>*/}
 
-                    </ExcelSheet>
-                </ExcelFile>
-                }
+                    {/*</ExcelSheet>*/}
+                {/*</ExcelFile>*/}
+                {/*}*/}
 
             </div>
         );

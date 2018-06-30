@@ -30,9 +30,11 @@ class Purchaselist extends Component {
         return (
             <div className="App overallpaddinglogin" style={{marginTop:'30px'}}>
                 {datas &&
-                <div style={{padding: '10px 60px'}}><BootstrapTable data={datas} striped hover pagination keyBoardNav>
+                <div style={{padding: '0px'}}><BootstrapTable data={datas} striped hover pagination keyBoardNav exportCSV data={ datas }
+                                                              tableHeaderClass='my-header-class'
+                                                              tableBodyClass='my-body-class'>
                     <TableHeaderColumn isKey dataField='id'
-                                       filter={{type: 'TextFilter', delay: 1000}}>Id</TableHeaderColumn>
+                                       filter={{type: 'TextFilter', delay: 1000}} columnClassName='td-header-string-example'>Id</TableHeaderColumn>
                     <TableHeaderColumn dataField='vendername' filter={{type: 'TextFilter', delay: 1000}}>Vender
                         name</TableHeaderColumn>
                     <TableHeaderColumn dataField='trn_no' filter={{type: 'TextFilter', delay: 1000}}>trn
@@ -50,19 +52,19 @@ class Purchaselist extends Component {
                 </BootstrapTable></div>
                 }
 
-                {datas && <ExcelFile element={<button>Download Excel Data</button>}>
-                    <ExcelSheet data={datas} name="purchase">
-                        <ExcelColumn label="Vender Name" value="vendername"/>
-                        <ExcelColumn label="trn no" value="trn_no"/>
-                        <ExcelColumn label="date invoice" value="date_invoice"/>
-                        <ExcelColumn label="amount"
-                                     value="amount"/>
-                        <ExcelColumn label="vat" value="vat"/>
-                        <ExcelColumn label="total" value="total"/>
-                        <ExcelColumn label="invoice number" value="invoice_number"/>
-                    </ExcelSheet>
-                </ExcelFile>
-                }
+                {/*{datas && <ExcelFile element={<button>Download Excel Data</button>}>*/}
+                    {/*<ExcelSheet data={datas} name="purchase">*/}
+                        {/*<ExcelColumn label="Vender Name" value="vendername"/>*/}
+                        {/*<ExcelColumn label="trn no" value="trn_no"/>*/}
+                        {/*<ExcelColumn label="date invoice" value="date_invoice"/>*/}
+                        {/*<ExcelColumn label="amount"*/}
+                                     {/*value="amount"/>*/}
+                        {/*<ExcelColumn label="vat" value="vat"/>*/}
+                        {/*<ExcelColumn label="total" value="total"/>*/}
+                        {/*<ExcelColumn label="invoice number" value="invoice_number"/>*/}
+                    {/*</ExcelSheet>*/}
+                {/*</ExcelFile>*/}
+                {/*}*/}
             </div>
         );
     }

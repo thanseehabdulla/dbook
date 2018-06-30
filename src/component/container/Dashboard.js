@@ -4,7 +4,7 @@ import Footer from "./component/footer";
 import HomeApp1 from './user/dashboard'
 import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
-
+import {Animated} from "react-animated-css";
 class Dashboard extends Component {
 
     // componentDidMount() {
@@ -19,9 +19,12 @@ class Dashboard extends Component {
     render() {
         return (
             <div className="">
+                <Animated animationIn="fadeInLeft" animationOut="fadeOut" isVisible={true}>
                 <Topbar/>
+                </Animated>
+                <Animated animationIn="fadeInLeft" animationOut="fadeOut" isVisible={true}>
                 <HomeApp1/>
-              
+                </Animated>
             </div>
         );
     }

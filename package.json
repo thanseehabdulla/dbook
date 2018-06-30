@@ -9,6 +9,7 @@
     "qs": "^6.5.2",
     "query-string": "^6.1.0",
     "react": "^16.3.2",
+    "react-animated-css": "^1.0.4",
     "react-bootstrap-table": "^4.3.1",
     "react-data-export": "^0.4.2",
     "react-dom": "^16.3.2",

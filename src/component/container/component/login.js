@@ -74,7 +74,7 @@ class Login extends Component {
                     <div className="row form-group">
                         <div className="input-field col s12">
                             <input name="username" onBlur={this.changeValue.bind(this)} id="email" type="text"
-                                   className="validate form-control form-control-lg form-control-rounded"
+                                   className="validate form-control form-control-lg "
                                    placeholder="username" style={{}}/>
                             {/*<label htmlFor="email">Email/username</label>*/}
                         </div>
@@ -82,13 +82,13 @@ class Login extends Component {
                     <div className="row form-group">
                         <div className="input-field col s12">
                             <input name="password" id="password" onBlur={this.changeValue.bind(this)} type="password"
-                                   className="validate form-control form-control-lg form-control-rounded"
+                                   className="validate form-control form-control-lg "
                                    placeholder="password" style={{}}/>
                             {/*<label htmlFor="password">Password</label>*/}
                         </div>
                     </div>
 
-                    <button className="btn btn-orange btn-block text-white btn-lg btn-rounded ld-ext-right"
+                    <button className="zoomIn btn btn-orange btn-block text-white btn-lg btn-rounded ld-ext-right"
                             onClick={this.login.bind(this)}>Login
                     </button>
 
