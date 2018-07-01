@@ -74,6 +74,13 @@ class PurchaseAdd extends Component {
             <div className="App overallpaddinglogin">
                 <div className="row form-group">
 
+                    <div className="row form-group">
+                        <div className="input-field col s12">
+                            <input name="invoice_number" placeholder="invoice_number" onBlur={this.changeValue.bind(this)}  type="text" className="form-control form-control-lg "/>
+                            {/*<label htmlFor="password">Password</label>*/}
+                        </div>
+                    </div>
+
                         <div className="row form-group">
                             <div className="input-field col s12">
                                 <Select defaultValue="" onChange={
@@ -133,12 +140,7 @@ class PurchaseAdd extends Component {
                         </div>
                     </div>
 
-                    <div className="row form-group">
-                        <div className="input-field col s12">
-                            <input name="invoice_number" placeholder="invoice_number" onBlur={this.changeValue.bind(this)}  type="text" className="form-control form-control-lg "/>
-                            {/*<label htmlFor="password">Password</label>*/}
-                        </div>
-                    </div>
+
 
                 </div>
                 {this.state.spin && <Spin />}

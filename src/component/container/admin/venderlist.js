@@ -22,7 +22,7 @@ class Venderlist extends Component {
         console.log(this.props.data)
 
         return (
-            <div className="App overallpaddinglogin" style={{marginTop:'30px'}}>
+            <div className="App overallpaddingtable" style={{marginTop:'30px'}}>
                 {datas && <div style={{padding:'0pxx'}}><BootstrapTable data={datas} striped hover pagination keyBoardNav exportCSV data={ datas }
                                                                         tableHeaderClass='my-header-class'
                                                                         tableBodyClass='my-body-class' >

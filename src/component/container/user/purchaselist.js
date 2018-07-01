@@ -28,7 +28,7 @@ class Purchaselist extends Component {
         console.log(this.props.data)
 
         return (
-            <div className="App overallpaddinglogin" style={{marginTop:'30px'}}>
+            <div className="App overallpaddingtable" style={{marginTop:'30px'}}>
 
 
                 {((localStorage.getItem('level') === 'admin') && datas) &&
@@ -60,7 +60,7 @@ class Purchaselist extends Component {
                                                               tableBodyClass='my-body-class'>
                     <TableHeaderColumn isKey dataField='id'
                                        filter={{type: 'TextFilter', delay: 1000}} columnClassName='td-header-string-example'>Id</TableHeaderColumn>
-                    <TableHeaderColumn dataField='vendername' filter={{type: 'TextFilter', delay: 1000}}>Vender
+                    <TableHeaderColumn dataField='vendername' filter={{type: 'TextFilter', delay: 1000}}>Vendor
                         name</TableHeaderColumn>
                     <TableHeaderColumn dataField='trn_no' filter={{type: 'TextFilter', delay: 1000}}>trn
                         no</TableHeaderColumn>

@@ -4,6 +4,11 @@
 }
 
 
+.overallpaddingtable{
+    /*padding: 20px 140px;*/
+    margin: 0px 70px;
+}
+
 
 
 
@@ -222,5 +227,9 @@ input, textarea, select, button {
     }
     .logpadding{
         padding:122px 40px;
+    }
+    .overallpaddingtable{
+        /*padding: 20px 140px;*/
+        margin: 0px 0px;
     }
 }

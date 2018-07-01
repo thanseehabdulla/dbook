@@ -27,14 +27,14 @@ class Topbar extends Component {
         <span className="icon-bar"></span>                        
       </button>
 
-        <a className="navbar-brand" style={{color:'white'}}><span style={{color:'3ec1d5'}}>D</span>Book</a>
+        <a className="navbar-brand" style={{color:'white'}}><span style={{color:'3ec1d5'}}>D</span>book</a>
     </div>
     <div className="collapse navbar-collapse" id="myNavbar">
       <ul className="nav navbar-nav">
       <li className=""><a href="/admindashboard/home">USER LIST</a></li>
-          <li className=""><a href="/admindashboard/venderlist">VENDER LIST</a></li>
+          <li className=""><a href="/admindashboard/venderlist">VENDOR LIST</a></li>
         <li className=""><a href="/admindashboard/add">ADD USER</a></li>
-          <li className=""><a href="/admindashboard/vender">ADD VENDER</a></li>
+          <li className=""><a href="/admindashboard/vender">ADD VENDOR</a></li>
         {/* <li><a href="#">Page 2</a></li>
         <li><a href="#">Page 3</a></li> */}
       </ul>
