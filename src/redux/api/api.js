@@ -4,6 +4,8 @@ const LOGIN_API = BASE_URL + "/api/login";
 
 const REGISTER_API = BASE_URL + "/api/register";
 
+const REGISTERVENDER_API = BASE_URL + "/api/registervender";
+
 const USER_API = BASE_URL + "/api/user";
 
 const SALES_API = BASE_URL + "/api/sales";
@@ -27,5 +29,6 @@ export {
     REGISTER_API,
     USER_API,
     SALES_API,
-    PURCHASE_API
+    PURCHASE_API,
+    REGISTERVENDER_API
 }

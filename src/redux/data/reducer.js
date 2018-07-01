@@ -11,7 +11,9 @@ const initialState = new Map({
     userid:null,
     register:false,
     failed:null,
-    add:null
+    add:null,
+    tax:0,
+    net:0
 });
 
 export default function datareducer(state = initialState, action) {
@@ -23,6 +25,16 @@ export default function datareducer(state = initialState, action) {
             return state.set('isLoggedIn', null).set('username',null).set('userid',null);
         case DATA_ACTIONS.LOGIN_FAILURE:
             return state.set('failed', true);
+        case DATA_ACTIONS.AMNT:
+            return state.set('amnt', parseFloat(action.amnt));
+        case DATA_ACTIONS.VAT:
+            return state.set('vat', parseFloat(action.vat));
+        case DATA_ACTIONS.TAX:
+            return state.set('tax', parseFloat(action.tax));
+        case DATA_ACTIONS.NET:
+            return state.set('net', parseFloat(action.net));
+        case DATA_ACTIONS.CLEAR:
+            return state.set('net', 0).set('tax', 0).set('amnt', 0).set('vat', 0);
         case DATA_ACTIONS.LOGIN_FAILURE_RESET:
             return state.set('failed', null);
         case DATA_ACTIONS.ADD:

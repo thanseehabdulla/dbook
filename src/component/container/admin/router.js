@@ -4,8 +4,9 @@ import { BrowserRouter } from 'react-router-dom'
 import {connect} from 'react-redux';
 
 import Adminlist from './adminlist';
-
+import Venderlist from './venderlist';
 import Add from './add';
+import Vender from './vender';
 
 
 const PublicRoutes = () => {
@@ -18,9 +19,19 @@ const PublicRoutes = () => {
                         path="/home"
                         component={Adminlist}
                     />
+
+                    <Route
+                        path="/venderlist"
+                        component={Venderlist}
+                    />
+
                      <Route
                         path="/add"
                         component={Add}
+                    />
+                    <Route
+                        path="/vender"
+                        component={Vender}
                     />
                     <Route
                         path="/"

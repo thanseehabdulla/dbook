@@ -11,6 +11,7 @@ export function* watcherSaga() {
     yield takeLatest(DATA_ACTIONS.API_GETSALESDATA, workerGetSalesDataSaga);
     yield takeLatest(DATA_ACTIONS.API_GETPURHCASEDATA, workerGetPurchaseDataSaga);
     yield takeLatest(DATA_ACTIONS.API_REGISTER, workerRegisterSaga);
+    yield takeLatest(DATA_ACTIONS.API_REGISTERVENDER, workerRegistervenderSaga);
     yield takeLatest(DATA_ACTIONS.API_REGISTERPURCHASE, workerRegisterPurchaseSaga);
     yield takeLatest(DATA_ACTIONS.API_REGISTERSALES, workerRegisterSalesSaga);
     yield takeLatest(DATA_ACTIONS.API_LOGOUT2, workerLogoutSaga);
@@ -105,7 +106,7 @@ function* workerGetDataSaga() {
 function* workerGetSalesDataSaga() {
     try {
         let body = {
-            url: API.SALES_API
+            url: API.SALES_API + "/" + localStorage.getItem('userid',0)
         }
         const response = yield call(REQUEST.getData, body);
         const data = response.data;
@@ -138,7 +139,7 @@ function* workerGetSalesDataSaga() {
 function* workerGetPurchaseDataSaga() {
     try {
         let body = {
-            url: API.PURCHASE_API
+            url: API.PURCHASE_API + "/" + localStorage.getItem('userid',0)
         }
         const response = yield call(REQUEST.getData, body);
         const data = response.data;
@@ -176,10 +177,13 @@ function* workerRegisterSaga(payload) {
                 password: payload.userdata.password,
                 email: payload.userdata.email,
                 phone: payload.userdata.phone,
-                address: payload.userdata.address
+                address: payload.userdata.address,
+                level: payload.userdata.level
             },
             url: API.REGISTER_API
         }
+
+        console.log(payload.userdata.level);
         const response = yield call(REQUEST.postData, body);
         const data = response.status;
 
@@ -188,11 +192,53 @@ function* workerRegisterSaga(payload) {
 
 
         if (data === 'success') {
+            // yield put({
+            //     type: DATA_ACTIONS.LOGIN_SUCCESS,
+            //     username: payload.userdata.username,
+            //     token: 'loggedin'
+            // });
+            console.log('sucess register')
             yield put({
-                type: DATA_ACTIONS.LOGIN_SUCCESS,
-                username: payload.userdata.username,
-                token: 'loggedin'
+                type: DATA_ACTIONS.ADD,
             });
+        } else {
+            console.log('sucess failure')
+        }
+
+
+    } catch (error) {
+        // dispatch a failure action to the store with the error
+        // yield put({type: "API_CALL_FAILURE", error});
+    }
+}
+
+
+// worker saga: makes the api call when watcher saga sees the action
+function* workerRegistervenderSaga(payload) {
+    try {
+        let body = {
+            body: {
+                vendername: payload.userdata.vendername,
+                trn_no: payload.userdata.trn_no,
+
+            },
+            url: API.REGISTERVENDER_API
+        }
+
+        // console.log(payload.userdata.level);
+        const response = yield call(REQUEST.postData, body);
+        const data = response.status;
+
+        // dispatch a success action to the store with the new dog
+        // yield put({ type: "API_CALL_SUCCESS", data });
+
+
+        if (data === 'success') {
+            // yield put({
+            //     type: DATA_ACTIONS.LOGIN_SUCCESS,
+            //     username: payload.userdata.username,
+            //     token: 'loggedin'
+            // });
             console.log('sucess register')
             yield put({
                 type: DATA_ACTIONS.ADD,
@@ -220,7 +266,9 @@ function* workerRegisterPurchaseSaga(payload) {
                 amount: payload.purchasedata.amount,
                 vat: payload.purchasedata.vat,
                 total: payload.purchasedata.total,
-                invoice_number: payload.purchasedata.invoice_number
+                invoice_number: payload.purchasedata.invoice_number,
+                userid: payload.purchasedata.userid
+
             },
             url: API.PURCHASE_API
         }

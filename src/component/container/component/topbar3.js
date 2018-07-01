@@ -43,6 +43,7 @@ class Topbar extends Component {
       </ul>
       <ul className="nav navbar-nav navbar-right">
         {/* <li><a href="#"><span className="glyphicon glyphicon-user"></span> Sign Up</a></li> */}
+          <li><a style={{color:'white'}}><span className="glyphicon glyphicon-user"></span> {localStorage.getItem('username','untitled')}</a></li>
         <li><a style={{color:'white'}} onClick={this.logout.bind(this)}><span className="glyphicon glyphicon-log-in"></span> Log Out</a></li>
       </ul>
     </div>

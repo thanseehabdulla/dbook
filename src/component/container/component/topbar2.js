@@ -31,13 +31,16 @@ class Topbar extends Component {
     </div>
     <div className="collapse navbar-collapse" id="myNavbar">
       <ul className="nav navbar-nav">
-      <li className=""><a href="/admindashboard/home">User List</a></li>
-        <li className=""><a href="/admindashboard/add">Add a user</a></li>
+      <li className=""><a href="/admindashboard/home">USER LIST</a></li>
+          <li className=""><a href="/admindashboard/venderlist">VENDER LIST</a></li>
+        <li className=""><a href="/admindashboard/add">ADD USER</a></li>
+          <li className=""><a href="/admindashboard/vender">ADD VENDER</a></li>
         {/* <li><a href="#">Page 2</a></li>
         <li><a href="#">Page 3</a></li> */}
       </ul>
       <ul className="nav navbar-nav navbar-right">
         {/* <li><a href="#"><span className="glyphicon glyphicon-user"></span> Sign Up</a></li> */}
+          <li><a style={{color:'white'}}><span className="glyphicon glyphicon-user"></span>Administrator</a></li>
         <li><a onClick={this.logout.bind(this)}><span className="glyphicon glyphicon-log-in"></span> Log Out</a></li>
       </ul>
     </div>

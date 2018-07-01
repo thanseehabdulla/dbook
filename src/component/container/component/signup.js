@@ -2,13 +2,22 @@ import React, {Component} from 'react';
 import './damn.css'
 import {DATA_ACTIONS} from './../../../redux/data/actions';
 import {connect} from "react-redux";
-import { Spin } from 'antd';
+import { Spin ,Select } from 'antd';
 const { register } = DATA_ACTIONS;
+const Option = Select.Option;
+const options = [{
+    values: 'admin',
+    label: 'Super User'
+},{
+    values: 'noadmin',
+    label: 'Normal User'
+}]
+
 
 class SignUp extends Component {
 
-    state = {spin:false}
-
+    state = {spin:false,
+    level:'noadmin'}
 
 
     changeValue(event){
@@ -28,9 +37,10 @@ class SignUp extends Component {
             password: this.state.password,
             email: this.state.email,
             phone: this.state.phone,
-            address: this.state.address
+            address: this.state.address,
+            level: this.state.level
         }
-
+        console.log(this.state.level)
         this.setState({
             spin : true
         })
@@ -47,34 +57,34 @@ class SignUp extends Component {
 
                         <div className="row form-group">
                             <div className="input-field col s12">
-                                <input name="name" placeholder="name" onBlur={this.changeValue.bind(this)} id="first_name" type="text" className="form-control form-control-lg form-control-rounded "/>
+                                <input name="name" placeholder="name" onBlur={this.changeValue.bind(this)} id="first_name" type="text" className="form-control form-control-lg "/>
                                     {/*<label htmlFor="first_name">First Name</label>*/}
                             </div>
 
                         </div>
                     <div className="row form-group">
                         <div className="input-field col s12">
-                            <input name="username" placeholder="username" onBlur={this.changeValue.bind(this)} id="username" type="text" className="form-control form-control-lg form-control-rounded"/>
+                            <input name="username" placeholder="username" onBlur={this.changeValue.bind(this)} id="username" type="text" className="form-control form-control-lg "/>
                             {/*<label htmlFor="password">Password</label>*/}
                         </div>
                     </div>
 
                         <div className="row form-group">
                             <div className="input-field col s12">
-                                <input name="password" placeholder="password" id="password" onBlur={this.changeValue.bind(this)} type="password" className="form-control form-control-lg form-control-rounded"/>
+                                <input name="password" placeholder="password" id="password" onBlur={this.changeValue.bind(this)} type="password" className="form-control form-control-lg "/>
                                     {/*<label htmlFor="password">Password</label>*/}
                             </div>
                         </div>
                         <div className="row form-group">
                             <div className="input-field col s12">
-                                <input name="email" placeholder="email" id="email" onBlur={this.changeValue.bind(this)} type="email" className="form-control form-control-lg form-control-rounded"/>
+                                <input name="email" placeholder="email" id="email" onBlur={this.changeValue.bind(this)} type="email" className="form-control form-control-lg "/>
                                     {/*<label htmlFor="email">Email</label>*/}
                             </div>
                         </div>
 
                     <div className="row form-group">
                         <div className="input-field col s12">
-                            <input name="phone" placeholder="phone" id="email" onBlur={this.changeValue.bind(this)} type="number" className="form-control form-control-lg form-control-rounded"/>
+                            <input name="phone" placeholder="phone" id="email" onBlur={this.changeValue.bind(this)} type="number" className="form-control form-control-lg "/>
                             {/*<label htmlFor="email">Email</label>*/}
                         </div>
                     </div>
@@ -85,9 +95,21 @@ class SignUp extends Component {
                             {/*<label htmlFor="password">Password</label>*/}
                         </div>
                     </div>
+                    <div className="row form-group">
+                        <div className="input-field col s12">
+                            <Select defaultValue={options[1].values} name="level" onChange={(e)=>{
+                                this.setState({level:e})
+                            }} className="form-control form-control-lg ">
+                                <Option value={options[0].values}>{options[0].label}</Option>
+                                <Option value={options[1].values}>{options[1].label}</Option>
+                            </Select>
+                            {/*<textarea name="address" placeholder="address" onBlur={this.changeValue.bind(this)} id="address" cols={145} row form-groups={5} className="form-control form-control-lg "/>*/}
+                            {/*<label htmlFor="password">Password</label>*/}
+                        </div>
+                    </div>
                 </div>
                 {this.state.spin && <Spin />}
-                <button className="btn btn-orange btn-block text-white btn-lg btn-rounded ld-ext-right" onClick={this.register.bind(this)}>Register</button>
+                <button className="btn btn-orange btn-block text-white btn-lg ld-ext-right" style={{width:'200px'}} onClick={this.register.bind(this)}>Save</button>
             </div>
         );
     }

@@ -3,7 +3,11 @@ import './damn.css'
 import {DATA_ACTIONS} from './../../../redux/data/actions';
 import {connect} from "react-redux";
 import { Spin } from 'antd';
-const { register_purchase } = DATA_ACTIONS;
+import moment from 'moment';
+
+import { DatePicker } from 'antd';
+const dateFormat = 'MM/DD/YYYY';
+const { register_purchase,vat,amnt } = DATA_ACTIONS;
 
 class PurchaseAdd extends Component {
     state = {spin:false}
@@ -28,19 +32,24 @@ class PurchaseAdd extends Component {
             date_invoice: this.state.date_invoice,
             amount: this.state.amount,
             vat: this.state.vat,
+            userid:localStorage.getItem('userid',0),
             invoice_number: this.state.invoice_number,
-            total: this.state.total
+            total: this.props.data.get('vat') + this.props.data.get('amnt')
         }
 
         this.setState({
             spin : true
         })
 
+
         let {register_purchase} = this.props;
         register_purchase(data);
     }
 
     render() {
+
+        const totals = this.props.data.get('vat') + this.props.data.get('amnt');
+
         return (
             <div className="App overallpaddinglogin">
                 <div className="row form-group">
@@ -61,28 +70,39 @@ class PurchaseAdd extends Component {
 
                     <div className="row form-group">
                         <div className="input-field col s12">
-                            <input name="date_invoice" placeholder="date invoice" onBlur={this.changeValue.bind(this)}  type="text" className="form-control form-control-lg "/>
+                            <DatePicker name="date" Placeholder="date" format={dateFormat} onChange={(date: moment, dateString: string) => {
+                                this.setState({date_invoice: dateString})
+                            }} className="form-control form-control-lg  "/>
+                            {/*<input name="date_invoice" placeholder="date invoice" onBlur={this.changeValue.bind(this)}  type="text" className="form-control form-control-lg "/>*/}
                             {/*<label htmlFor="password">Password</label>*/}
                         </div>
                     </div>
 
                     <div className="row form-group">
                         <div className="input-field col s12">
-                            <input name="amount" placeholder="amount" onBlur={this.changeValue.bind(this)}  type="number" className="form-control form-control-lg "/>
+                            <input name="amount" placeholder="Amount" onChange={(e)=> {
+                                const {amnt} = this.props;
+                                amnt(e.target.value);
+                            }
+                            } onBlur={this.changeValue.bind(this)}  type="number" className="form-control form-control-lg "/>
                             {/*<label htmlFor="password">Password</label>*/}
                         </div>
                     </div>
 
                     <div className="row form-group">
                         <div className="input-field col s12">
-                            <input name="vat" placeholder="vat" onBlur={this.changeValue.bind(this)}  type="number" className="form-control form-control-lg "/>
+                            <input name="vat" placeholder="vat" onChange={(e)=> {
+                                const {vat} = this.props;
+                                vat(e.target.value);
+                            }
+                            } onBlur={this.changeValue.bind(this)}  type="number" className="form-control form-control-lg "/>
                             {/*<label htmlFor="password">Password</label>*/}
                         </div>
                     </div>
 
                     <div className="row form-group">
                         <div className="input-field col s12">
-                            <input name="total" placeholder="total" onBlur={this.changeValue.bind(this)}  type="number" className="form-control form-control-lg "/>
+                            <input name="total" placeholder="total" value={totals} onBlur={this.changeValue.bind(this)}  type="number" className="form-control form-control-lg "/>
                             {/*<label htmlFor="password">Password</label>*/}
                         </div>
                     </div>
@@ -104,7 +124,7 @@ class PurchaseAdd extends Component {
 
 export default connect(
     state => ({
-
+        data: state.data
     }),
-    {  register_purchase }
+    {  register_purchase,vat,amnt }
 )(PurchaseAdd);

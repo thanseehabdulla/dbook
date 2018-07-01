@@ -8,6 +8,7 @@ export const DATA_ACTIONS = {
     API_LOGOUT:"API_LOGOUT",
     API_LOGOUT2:"API_LOGOUT2",
     API_REGISTER:"API_REGISTER",
+    API_REGISTERVENDER:"API_REGISTERVENDER",
     API_REGISTERPURCHASE:"API_REGISTERPURCHASE",
     API_REGISTERSALES:"API_REGISTERSALES",
     API_GETDATA:"API_GET_DATA",
@@ -22,9 +23,33 @@ export const DATA_ACTIONS = {
     ADD:'ADD',
     ADD_RESET:'ADD_RESET',
     REGISTER_SUCCESS:'REGISTER_SUCCESS',
+    TAX:'TAX',
+    NET:'NET',
+    VAT:'VAt',
+    AMNT:'AMNT',
+    CLEAR:'CLEAR',
     login: (user)=>({
        type: DATA_ACTIONS.API_LOGIN,
         userdata:user
+    }),
+    tax: (user)=>({
+        type: DATA_ACTIONS.TAX,
+        tax:user
+    }),
+    vat: (user)=>({
+        type: DATA_ACTIONS.VAT,
+        vat:user
+    }),
+    amnt: (user)=>({
+        type: DATA_ACTIONS.AMNT,
+        amnt:user
+    }),
+    clear: ()=>({
+        type: DATA_ACTIONS.CLEAR,
+    }),
+    net: (user)=>({
+        type: DATA_ACTIONS.NET,
+        net:user
     }),
     logout: ()=>({
         type: DATA_ACTIONS.API_LOGOUT2
@@ -40,6 +65,10 @@ export const DATA_ACTIONS = {
     }),
     register: (user)=>({
         type: DATA_ACTIONS.API_REGISTER,
+        userdata:user
+    }),
+    registervender: (user)=>({
+        type: DATA_ACTIONS.API_REGISTERVENDER,
         userdata:user
     }),
     register_purchase: (data)=>({
