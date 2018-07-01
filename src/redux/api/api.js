@@ -8,6 +8,8 @@ const REGISTERVENDER_API = BASE_URL + "/api/registervender";
 
 const USER_API = BASE_URL + "/api/user";
 
+const VENDER_API = BASE_URL + "/api/vender";
+
 const SALES_API = BASE_URL + "/api/sales";
 
 const PURCHASE_API = BASE_URL + "/api/purchase";
@@ -30,5 +32,6 @@ export {
     USER_API,
     SALES_API,
     PURCHASE_API,
-    REGISTERVENDER_API
+    REGISTERVENDER_API,
+    VENDER_API
 }

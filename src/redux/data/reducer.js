@@ -43,6 +43,8 @@ export default function datareducer(state = initialState, action) {
             return state.set('add', null);
         case DATA_ACTIONS.GET_SUCCESS:
             return state.set('userdata', action.userdata);
+        case DATA_ACTIONS.GETVENDER_SUCCESS:
+            return state.set('venderdata', action.venderdata);
         case DATA_ACTIONS.GET_SALESSUCCESS:
             return state.set('salesdata', action.salesdata);
         case DATA_ACTIONS.GET_PURCHASESUCCESS:

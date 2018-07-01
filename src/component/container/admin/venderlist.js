@@ -18,7 +18,7 @@ class Venderlist extends Component {
 
     render() {
 
-        const datas = this.props.data ? this.props.data.get('userdata') : {}
+        const datas = this.props.data ? this.props.data.get('venderdata') : {}
         console.log(this.props.data)
 
         return (
