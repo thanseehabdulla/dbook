@@ -4,15 +4,15 @@ import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 
 import {DATA_ACTIONS} from './../../../redux/data/actions'
 
-const {get_data} = DATA_ACTIONS
+const {get_vender} = DATA_ACTIONS
 
 
 class Venderlist extends Component {
 
     componentDidMount() {
-        const {get_data} = this.props;
-        get_data();
-        console.log(this.props.data)
+        const {get_vender} = this.props;
+        get_vender();
+        // console.log(this.props.data)
     }
 
 
@@ -38,5 +38,5 @@ class Venderlist extends Component {
 
 export default connect(state => ({
     data: state.data
-}), {get_data
+}), {get_vender
 })(Venderlist)
