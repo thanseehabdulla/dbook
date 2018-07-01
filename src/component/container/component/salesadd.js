@@ -7,24 +7,26 @@ const { register_sales } = DATA_ACTIONS;
 
 class SalesAdd extends Component {
 
-   state = {spin:false}
+   state = {spin:false,
+net_total:0}
 
 
 
+
+    
+
+
+
+
+   
     changeValue(event){
         let name = event.target.name;
         let value = event.target.value;
 
-        this.setState({
-            [name] : value
-        })
+       
 
-            if(this.name === 'net sales' || this.name = "tax"){
-                   if(this.state.net_sales && this.state.tax){
-                   let total = parseFloat(this.state.net_sales) + parseFloat(this.state.tax)
-                   this.setState({net_total:total})  
-}
-              }
+         this.setState({[name]:value})  
+
 
     }
 
@@ -78,7 +80,7 @@ class SalesAdd extends Component {
 
                     <div className="row form-group">
                         <div className="input-field col s12">
-                            <input name="tax" placeholder="Tax" onBlur={this.changeValue.bind(this)} type="number" className="form-control form-control-lg  "/>
+                            <input name="tax" placeholder="Tax"  onBlur={this.changeValue.bind(this)} type="number" className="form-control form-control-lg  "/>
                             {/*<label htmlFor="first_name">First Name</label>*/}
                         </div>
 
@@ -86,7 +88,7 @@ class SalesAdd extends Component {
 
                     <div className="row form-group">
                         <div className="input-field col s12">
-                            <input name="net_total" placeholder="Net total" disabled  onBlur={this.changeValue.bind(this)} type="number" className="form-control form-control-lg  "/>
+                            <input name="net_total" placeholder="Net total" disabled  value={this.state.net_total} onBlur={this.changeValue.bind(this)} type="number" className="form-control form-control-lg  "/>
                             {/*<label htmlFor="first_name">First Name</label>*/}
                         </div>
 
