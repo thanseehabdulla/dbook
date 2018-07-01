@@ -102,7 +102,7 @@ class Login extends Component {
                     <div className="row form-group">
                         <div className="input-field col s12">
                             <input name="password" id="password" onBlur={this.changeValue.bind(this)} type="password"
-                                   className="validate form-control form-control-lg "
+                                   className="validate form-control form-control-sm "
                                    placeholder="password" style={{}}/>
                             {/*<label htmlFor="password">Password</label>*/}
                         </div>
