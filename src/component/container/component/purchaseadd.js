@@ -15,7 +15,7 @@ const options = [{
 }];
 
 class PurchaseAdd extends Component {
-    state = {spin:false}
+    state = {spin:false,trn_no:'0'}
 
 
 
@@ -56,21 +56,31 @@ class PurchaseAdd extends Component {
         register_purchase(data);
     }
 
+
+
+
+
+
     render() {
 
         const totals = this.props.data.get('vat') + this.props.data.get('amnt');
         const datas = this.props.data.get('venderdata')
+
+        let options = (datas || []).map( (item,index) => {
+            return <Option value={item['name']+'-'+item['trn_no']} key={item['name']}>{(item['name'])}</Option>;
+        });
+
         return (
             <div className="App overallpaddinglogin">
                 <div className="row form-group">
 
                         <div className="row form-group">
                             <div className="input-field col s12">
-                                {/*<Select defaultValue="Zhejiang">*/}
-                                    {/*{ datas.map( val =>*/}
-                                        {/*<Option key={val.name} value={val.name}>{val.name}</Option>*/}
-                                    {/*)}*/}
-                                {/*</Select>*/}
+                                <Select defaultValue="" onChange={
+                                    (e)=> this.setState({vendername:e,trn_no:e.split('-')[1]})
+                                } className="form-control form-control-lg ">
+                                    {options}
+                                </Select>
 
                                 {/*<input name="vendername" placeholder="vendername" onBlur={this.changeValue.bind(this)} type="text" className="form-control form-control-lg  "/>*/}
                                     {/*<label htmlFor="first_name">First Name</label>*/}
@@ -79,7 +89,7 @@ class PurchaseAdd extends Component {
                         </div>
                     <div className="row form-group">
                         <div className="input-field col s12">
-                            <input name="trn_no" placeholder="trn no" disabled onBlur={this.changeValue.bind(this)}  type="number" className="form-control form-control-lg "/>
+                            <input name="trn_no" value={this.state.trn_no} placeholder="trn no" disabled onBlur={this.changeValue.bind(this)}  type="text" className="form-control form-control-lg "/>
                             {/*<label htmlFor="password">Password</label>*/}
                         </div>
                     </div>
