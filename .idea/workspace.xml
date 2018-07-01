@@ -11,15 +11,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="venderup.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/component/container/component/venderup.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="945">
-              <caret line="79" column="23" selection-start-line="79" selection-start-column="23" selection-end-line="79" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="dashboard.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/component/container/admin/dashboard.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -44,8 +35,17 @@
       <file leaf-file-name="venderlist.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/component/container/admin/venderlist.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="27" column="102" selection-start-line="27" selection-start-column="102" selection-end-line="27" selection-end-column="102" />
+            <state relative-caret-position="195">
+              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="actions.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/redux/data/actions.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="227">
+              <caret line="23" column="23" lean-forward="true" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -65,20 +65,8 @@
       <file leaf-file-name="adminlist.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/component/container/admin/adminlist.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="28" column="133" lean-forward="true" selection-start-line="28" selection-start-column="133" selection-end-line="28" selection-end-column="133" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vender.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/component/container/admin/vender.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="240">
+              <caret line="20" column="65" selection-start-line="20" selection-start-column="65" selection-end-line="20" selection-end-column="65" />
             </state>
           </provider>
         </entry>
@@ -95,23 +83,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="topbar2.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/component/container/component/topbar2.js">
+      <file leaf-file-name="saga.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/redux/data/saga.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="34" column="62" selection-start-line="34" selection-start-column="62" selection-end-line="34" selection-end-column="62" />
+            <state relative-caret-position="203">
+              <caret line="120" column="52" selection-start-line="120" selection-start-column="35" selection-end-line="120" selection-end-column="52" />
+              <folding>
+                <element signature="e#0#68#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="saga.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/redux/data/saga.js">
+      <file leaf-file-name="reducer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/redux/data/reducer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-133">
-              <caret line="216" column="10" selection-start-line="216" selection-start-column="10" selection-end-line="216" selection-end-column="10" />
-              <folding>
-                <element signature="e#0#68#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="195">
+              <caret line="38" column="45" lean-forward="true" selection-start-line="38" selection-start-column="45" selection-end-line="38" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="api.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/redux/api/api.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="337">
+              <caret line="35" column="14" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -120,7 +117,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>a</find>
       <find>header-are</find>
       <find>footer-are</find>
       <find>header</find>
@@ -149,6 +145,7 @@
       <find>sa</find>
       <find>add</find>
       <find>form-control-rounded</find>
+      <find>get</find>
       <find>loca</find>
     </findStrings>
     <replaceStrings>
@@ -201,18 +198,18 @@
         <option value="$PROJECT_DIR$/src/component/container/Dashboard.js" />
         <option value="$PROJECT_DIR$/src/component/container/sinup.js" />
         <option value="$PROJECT_DIR$/src/component/container/adminDashboard.js" />
-        <option value="$PROJECT_DIR$/src/redux/data/reducer.js" />
         <option value="$PROJECT_DIR$/src/component/container/component/salesadd.js" />
         <option value="$PROJECT_DIR$/src/component/container/component/purchaseadd.js" />
         <option value="$PROJECT_DIR$/src/component/container/component/topbar3.js" />
         <option value="$PROJECT_DIR$/src/component/container/component/signup.js" />
         <option value="$PROJECT_DIR$/src/component/container/admin/vender.js" />
-        <option value="$PROJECT_DIR$/src/redux/data/actions.js" />
-        <option value="$PROJECT_DIR$/src/redux/api/api.js" />
-        <option value="$PROJECT_DIR$/src/redux/data/saga.js" />
         <option value="$PROJECT_DIR$/src/component/container/component/venderup.js" />
         <option value="$PROJECT_DIR$/src/component/container/component/topbar2.js" />
         <option value="$PROJECT_DIR$/src/component/container/admin/router.js" />
+        <option value="$PROJECT_DIR$/src/redux/api/api.js" />
+        <option value="$PROJECT_DIR$/src/redux/data/actions.js" />
+        <option value="$PROJECT_DIR$/src/redux/data/saga.js" />
+        <option value="$PROJECT_DIR$/src/redux/data/reducer.js" />
         <option value="$PROJECT_DIR$/src/component/container/admin/adminlist.js" />
         <option value="$PROJECT_DIR$/src/component/container/admin/venderlist.js" />
       </list>
@@ -389,12 +386,12 @@
       <workItem from="1529242477410" duration="244000" />
       <workItem from="1530315527086" duration="4801000" />
       <workItem from="1530359089135" duration="7452000" />
-      <workItem from="1530430506868" duration="14358000" />
+      <workItem from="1530430506868" duration="14682000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72741000" />
+    <option name="totallyTimeSpent" value="73065000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="732" extended-state="6" />
@@ -736,13 +733,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/data/reducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="34" column="14" lean-forward="true" selection-start-line="34" selection-start-column="14" selection-end-line="34" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/component/container/admin/add.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -760,20 +750,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/data/actions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="70" column="45" selection-start-line="70" selection-start-column="45" selection-end-line="70" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/api/api.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/component/container/admin/vender.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -788,16 +764,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="945">
           <caret line="79" column="23" selection-start-line="79" selection-start-column="23" selection-end-line="79" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/redux/data/saga.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-133">
-          <caret line="216" column="10" selection-start-line="216" selection-start-column="10" selection-end-line="216" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#68#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -845,17 +811,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/api/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="35" column="14" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/data/actions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="23" column="23" lean-forward="true" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/data/reducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="38" column="45" lean-forward="true" selection-start-line="38" selection-start-column="45" selection-end-line="38" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/redux/data/saga.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="120" column="52" selection-start-line="120" selection-start-column="35" selection-end-line="120" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#68#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/component/container/admin/adminlist.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="28" column="133" lean-forward="true" selection-start-line="28" selection-start-column="133" selection-end-line="28" selection-end-column="133" />
+        <state relative-caret-position="240">
+          <caret line="20" column="65" selection-start-line="20" selection-start-column="65" selection-end-line="20" selection-end-column="65" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/component/container/admin/venderlist.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="27" column="102" selection-start-line="27" selection-start-column="102" selection-end-line="27" selection-end-column="102" />
+        <state relative-caret-position="195">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>

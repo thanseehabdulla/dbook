@@ -118,7 +118,7 @@ function* workerGetDataVenderSaga() {
 
         if (data.length > 0) {
             yield put({
-                type: DATA_ACTIONS.GETVENDER_SUCCESS
+                type: DATA_ACTIONS.GETVENDER_SUCCESS})
         } else {
             console.log('sucess failure')
         }
