@@ -28,9 +28,20 @@ class Saleslist extends Component {
 
         return (
             <div className="App overallpaddinglogin" style={{marginTop:'30px'}}>
-                {datas && <div style={{padding:'0px'}}><BootstrapTable data={datas} striped hover pagination keyBoardNav exportCSV data={ datas }
+                {((localStorage.getItem('level') === 'admin') && datas) && <div style={{padding:'0px'}}><BootstrapTable data={datas} striped hover pagination keyBoardNav exportCSV data={ datas }
                                                                        tableHeaderClass='my-header-class'
                                                                        tableBodyClass='my-body-class'>
+                    <TableHeaderColumn isKey dataField='id' filter={ { type: 'TextFilter', delay: 1000 } } columnClassName='td-header-string-example'>Id</TableHeaderColumn>
+                    <TableHeaderColumn dataField='date' filter={ { type: 'TextFilter', delay: 1000 } }>Date</TableHeaderColumn>
+                    <TableHeaderColumn dataField='net_sales' filter={ { type: 'TextFilter', delay: 1000 } }>Net Sales</TableHeaderColumn>
+                    <TableHeaderColumn dataField='tax' filter={ { type: 'TextFilter', delay: 1000 } }>Tax</TableHeaderColumn>
+                    <TableHeaderColumn dataField='net_total' filter={ { type: 'TextFilter', delay: 1000 } }>Net Total</TableHeaderColumn>
+                </BootstrapTable></div>
+                }
+
+                {((localStorage.getItem('level') !== 'admin') && datas) && <div style={{padding:'0px'}}><BootstrapTable data={datas} striped hover pagination keyBoardNav
+                                                                                                                        tableHeaderClass='my-header-class'
+                                                                                                                        tableBodyClass='my-body-class'>
                     <TableHeaderColumn isKey dataField='id' filter={ { type: 'TextFilter', delay: 1000 } } columnClassName='td-header-string-example'>Id</TableHeaderColumn>
                     <TableHeaderColumn dataField='date' filter={ { type: 'TextFilter', delay: 1000 } }>Date</TableHeaderColumn>
                     <TableHeaderColumn dataField='net_sales' filter={ { type: 'TextFilter', delay: 1000 } }>Net Sales</TableHeaderColumn>

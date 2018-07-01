@@ -29,8 +29,33 @@ class Purchaselist extends Component {
 
         return (
             <div className="App overallpaddinglogin" style={{marginTop:'30px'}}>
-                {datas &&
+
+
+                {((localStorage.getItem('level') === 'admin') && datas) &&
                 <div style={{padding: '0px'}}><BootstrapTable data={datas} striped hover pagination keyBoardNav exportCSV data={ datas }
+                                                              tableHeaderClass='my-header-class'
+                                                              tableBodyClass='my-body-class'>
+                    <TableHeaderColumn isKey dataField='id'
+                                       filter={{type: 'TextFilter', delay: 1000}} columnClassName='td-header-string-example'>Id</TableHeaderColumn>
+                    <TableHeaderColumn dataField='vendername' filter={{type: 'TextFilter', delay: 1000}}>Vender
+                        name</TableHeaderColumn>
+                    <TableHeaderColumn dataField='trn_no' filter={{type: 'TextFilter', delay: 1000}}>trn
+                        no</TableHeaderColumn>
+                    <TableHeaderColumn dataField='date_invoice' filter={{type: 'TextFilter', delay: 1000}}>Date
+                        invoice</TableHeaderColumn>
+                    <TableHeaderColumn dataField='amount'
+                                       filter={{type: 'TextFilter', delay: 1000}}>Amount</TableHeaderColumn>
+                    <TableHeaderColumn dataField='vat'
+                                       filter={{type: 'TextFilter', delay: 1000}}>Vat</TableHeaderColumn>
+                    <TableHeaderColumn dataField='total'
+                                       filter={{type: 'TextFilter', delay: 1000}}>Total</TableHeaderColumn>
+                    <TableHeaderColumn dataField='invoice_number' filter={{type: 'TextFilter', delay: 1000}}>invoice
+                        number</TableHeaderColumn>
+                </BootstrapTable></div>
+                }
+
+                {((localStorage.getItem('level') !== 'admin') && datas) &&
+                <div style={{padding: '0px'}}><BootstrapTable data={datas} striped hover pagination keyBoardNav
                                                               tableHeaderClass='my-header-class'
                                                               tableBodyClass='my-body-class'>
                     <TableHeaderColumn isKey dataField='id'

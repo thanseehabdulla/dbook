@@ -41,6 +41,8 @@ function* workerLoginSaga(payload) {
         const response = yield call(REQUEST.postData, body);
         const data = response.status;
         const userid = response.userid;
+        const level = response.level;
+
         // dispatch a success action to the store with the new dog
         // yield put({ type: "API_CALL_SUCCESS", data });
 
@@ -50,12 +52,14 @@ function* workerLoginSaga(payload) {
                 type: DATA_ACTIONS.LOGIN_SUCCESS,
                 username: payload.userdata.username,
                 userid: userid,
+                level:level,
                 token: 'loggedin'
             });
            console.log('sucess login')
             localStorage.setItem('logged','user')
             localStorage.setItem('username',payload.userdata.username)
             localStorage.setItem('userid',userid)
+            localStorage.setItem('level',level);
         } else {
             console.log('sucess failure')
             yield put({
