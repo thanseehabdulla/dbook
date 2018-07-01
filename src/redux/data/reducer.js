@@ -8,6 +8,7 @@ const initialState = new Map({
     error: null,
     isLoggedIn:null,
     username:null,
+    userid:null,
     register:false,
     failed:null,
     add:null
@@ -17,9 +18,9 @@ export default function datareducer(state = initialState, action) {
     switch (action.type) {
        
         case DATA_ACTIONS.LOGIN_SUCCESS:
-            return state.set('isLoggedIn', action.token).set('username',action.username);
+            return state.set('isLoggedIn', action.token).set('username',action.username).set('userid',action.userid);
         case DATA_ACTIONS.API_LOGOUT:
-            return state.set('isLoggedIn', null).set('username',null);
+            return state.set('isLoggedIn', null).set('username',null).set('userid',null);
         case DATA_ACTIONS.LOGIN_FAILURE:
             return state.set('failed', true);
         case DATA_ACTIONS.LOGIN_FAILURE_RESET:

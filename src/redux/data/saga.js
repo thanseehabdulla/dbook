@@ -13,8 +13,18 @@ export function* watcherSaga() {
     yield takeLatest(DATA_ACTIONS.API_REGISTER, workerRegisterSaga);
     yield takeLatest(DATA_ACTIONS.API_REGISTERPURCHASE, workerRegisterPurchaseSaga);
     yield takeLatest(DATA_ACTIONS.API_REGISTERSALES, workerRegisterSalesSaga);
+    yield takeLatest(DATA_ACTIONS.API_LOGOUT2, workerLogoutSaga);
 }
 
+
+// worker saga: makes the api call when watcher saga sees the action
+function* workerLogoutSaga() {
+    localStorage.setItem('username',null)
+    localStorage.setItem('userid',null)
+    yield put({
+        type: DATA_ACTIONS.API_LOGOUT,
+    });
+}
 
 // worker saga: makes the api call when watcher saga sees the action
 function* workerLoginSaga(payload) {
@@ -28,7 +38,7 @@ function* workerLoginSaga(payload) {
         }
         const response = yield call(REQUEST.postData, body);
         const data = response.status;
-
+        const userid = response.userid;
         // dispatch a success action to the store with the new dog
         // yield put({ type: "API_CALL_SUCCESS", data });
 
@@ -37,10 +47,13 @@ function* workerLoginSaga(payload) {
             yield put({
                 type: DATA_ACTIONS.LOGIN_SUCCESS,
                 username: payload.userdata.username,
+                userid: userid,
                 token: 'loggedin'
             });
            console.log('sucess login')
             localStorage.setItem('logged','user')
+            localStorage.setItem('username',payload.userdata.username)
+            localStorage.setItem('userid',userid)
         } else {
             console.log('sucess failure')
             yield put({
@@ -95,7 +108,7 @@ function* workerGetSalesDataSaga() {
             url: API.SALES_API
         }
         const response = yield call(REQUEST.getData, body);
-        const data = response;
+        const data = response.data;
 
         // dispatch a success action to the store with the new dog
         // yield put({ type: "API_CALL_SUCCESS", data });
@@ -245,10 +258,10 @@ function* workerRegisterSalesSaga(payload) {
         let body = {
             body: {
                 date: payload.salesdata.date,
-                item_sold: payload.salesdata.item_sold,
-                gross_sales: payload.salesdata.gross_sales,
-                tax: payload.salesdata.tax,
                 net_sales: payload.salesdata.net_sales,
+                tax: payload.salesdata.tax,
+                net_total: payload.salesdata.net_total,
+                userid: payload.salesdata.userid,
 
             },
             url: API.SALES_API

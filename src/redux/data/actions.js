@@ -6,6 +6,7 @@ export const DATA_ACTIONS = {
     API_CALL_FAILURE: "API_CALL_FAILURE",
     API_LOGIN:"API_LOGIN",
     API_LOGOUT:"API_LOGOUT",
+    API_LOGOUT2:"API_LOGOUT2",
     API_REGISTER:"API_REGISTER",
     API_REGISTERPURCHASE:"API_REGISTERPURCHASE",
     API_REGISTERSALES:"API_REGISTERSALES",
@@ -26,7 +27,7 @@ export const DATA_ACTIONS = {
         userdata:user
     }),
     logout: ()=>({
-        type: DATA_ACTIONS.API_LOGOUT
+        type: DATA_ACTIONS.API_LOGOUT2
 
     }),
     reset: ()=>({

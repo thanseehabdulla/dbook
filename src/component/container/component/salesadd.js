@@ -3,7 +3,12 @@ import './damn.css'
 import {DATA_ACTIONS} from './../../../redux/data/actions';
 import {connect} from "react-redux";
 import { Spin } from 'antd';
+import moment from 'moment';
+
+import { DatePicker } from 'antd';
+
 const { register_sales } = DATA_ACTIONS;
+const dateFormat = 'MM/DD/YYYY';
 
 class SalesAdd extends Component {
 
@@ -24,11 +29,13 @@ class SalesAdd extends Component {
     register(){
         let data = {
             date: this.state.date,
-            item_sold: this.state.item_sold,
-            gross_sales: this.state.gross_sales,
+            net_total: this.state.net_total,
             tax: this.state.tax,
-            net_sales: this.state.net_sales
+            net_sales: this.state.net_sales,
+            userid:localStorage.getItem('userid',0)
         }
+
+        console.log(this.props.userid)
 
         this.setState({
             spin : true
@@ -54,23 +61,18 @@ class SalesAdd extends Component {
 
                         <div className="row form-group">
                             <div className="input-field col s12">
-                                <input name="date" placeholder="date" onBlur={this.changeValue.bind(this)} type="text" className="form-control form-control-lg  "/>
+                                <DatePicker name="date" Placeholder="date" format={dateFormat} onBlur={this.changeValue.bind(this)} className="form-control form-control-lg  "/>
+                                {/*<input name="date" placeholder="date" onBlur={this.changeValue.bind(this)} type="text" className="form-control form-control-lg  "/>*/}
                                     {/*<label htmlFor="first_name">First Name</label>*/}
                             </div>
 
                         </div>
 
-                    <div className="row form-group">
-                        <div className="input-field col s12">
-                            <input name="item_sold" placeholder="item sold" onBlur={this.changeValue.bind(this)} type="number" className="form-control form-control-lg  "/>
-                            {/*<label htmlFor="first_name">First Name</label>*/}
-                        </div>
 
-                    </div>
 
                     <div className="row form-group">
                         <div className="input-field col s12">
-                            <input name="gross_sales" placeholder="gross sales" onBlur={this.changeValue.bind(this)} type="number" className="form-control form-control-lg  "/>
+                            <input name="net_sales" placeholder="Net Sales" onBlur={this.changeValue.bind(this)} type="number" className="form-control form-control-lg  "/>
                             {/*<label htmlFor="first_name">First Name</label>*/}
                         </div>
 
@@ -86,7 +88,7 @@ class SalesAdd extends Component {
 
                     <div className="row form-group">
                         <div className="input-field col s12">
-                            <input name="net_sales" placeholder="net sales" onBlur={this.changeValue.bind(this)} type="number" className="form-control form-control-lg  "/>
+                            <input name="net_total" placeholder="Net Total " onBlur={this.changeValue.bind(this)} type="number" className="form-control form-control-lg  "/>
                             {/*<label htmlFor="first_name">First Name</label>*/}
                         </div>
 
@@ -102,7 +104,8 @@ class SalesAdd extends Component {
 
 export default connect(
     state => ({
-        add: state.data.get('add')
+        add: state.data.get('add'),
+        userid: state.data.get('userid')
     }),
     {  register_sales }
 )(SalesAdd);
