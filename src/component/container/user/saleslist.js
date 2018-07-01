@@ -33,10 +33,9 @@ class Saleslist extends Component {
                                                                        tableBodyClass='my-body-class'>
                     <TableHeaderColumn isKey dataField='id' filter={ { type: 'TextFilter', delay: 1000 } } columnClassName='td-header-string-example'>Id</TableHeaderColumn>
                     <TableHeaderColumn dataField='date' filter={ { type: 'TextFilter', delay: 1000 } }>Date</TableHeaderColumn>
-                    <TableHeaderColumn dataField='item_sold' filter={ { type: 'TextFilter', delay: 1000 } }>Item Sold</TableHeaderColumn>
-                    <TableHeaderColumn dataField='gross_sales' filter={ { type: 'TextFilter', delay: 1000 } }>Gross Sales</TableHeaderColumn>
-                    <TableHeaderColumn dataField='tax' filter={ { type: 'TextFilter', delay: 1000 } }>Tax</TableHeaderColumn>
                     <TableHeaderColumn dataField='net_sales' filter={ { type: 'TextFilter', delay: 1000 } }>Net Sales</TableHeaderColumn>
+                    <TableHeaderColumn dataField='tax' filter={ { type: 'TextFilter', delay: 1000 } }>Tax</TableHeaderColumn>
+                    <TableHeaderColumn dataField='net_total' filter={ { type: 'TextFilter', delay: 1000 } }>Net Total</TableHeaderColumn>
                 </BootstrapTable></div>
                 }
 

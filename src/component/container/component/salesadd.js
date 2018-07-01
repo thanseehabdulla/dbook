@@ -18,14 +18,21 @@ class SalesAdd extends Component {
         this.setState({
             [name] : value
         })
+
+            if(this.name === 'net sales' || this.name = "tax"){
+                   if(this.state.net_sales && this.state.tax){
+                   let total = parseFloat(this.state.net_sales) + parseFloat(this.state.tax)
+                   this.setState({net_total:total})  
+}
+              }
+
     }
 
 
     register(){
         let data = {
             date: this.state.date,
-            item_sold: this.state.item_sold,
-            gross_sales: this.state.gross_sales,
+            net_total: this.state.net_total,
             tax: this.state.tax,
             net_sales: this.state.net_sales
         }
@@ -54,15 +61,16 @@ class SalesAdd extends Component {
 
                         <div className="row form-group">
                             <div className="input-field col s12">
-                                <input name="date" placeholder="date" onBlur={this.changeValue.bind(this)} type="text" className="form-control form-control-lg  "/>
+                                <input name="date" placeholder="Date" onBlur={this.changeValue.bind(this)} type="text" className="form-control form-control-lg  "/>
                                     {/*<label htmlFor="first_name">First Name</label>*/}
                             </div>
 
                         </div>
 
+
                     <div className="row form-group">
                         <div className="input-field col s12">
-                            <input name="item_sold" placeholder="item sold" onBlur={this.changeValue.bind(this)} type="number" className="form-control form-control-lg  "/>
+                            <input name="net_sales" placeholder="Net sales" onBlur={this.changeValue.bind(this)} type="number" className="form-control form-control-lg  "/>
                             {/*<label htmlFor="first_name">First Name</label>*/}
                         </div>
 
@@ -70,7 +78,7 @@ class SalesAdd extends Component {
 
                     <div className="row form-group">
                         <div className="input-field col s12">
-                            <input name="gross_sales" placeholder="gross sales" onBlur={this.changeValue.bind(this)} type="number" className="form-control form-control-lg  "/>
+                            <input name="tax" placeholder="Tax" onBlur={this.changeValue.bind(this)} type="number" className="form-control form-control-lg  "/>
                             {/*<label htmlFor="first_name">First Name</label>*/}
                         </div>
 
@@ -78,15 +86,7 @@ class SalesAdd extends Component {
 
                     <div className="row form-group">
                         <div className="input-field col s12">
-                            <input name="tax" placeholder="tax" onBlur={this.changeValue.bind(this)} type="number" className="form-control form-control-lg  "/>
-                            {/*<label htmlFor="first_name">First Name</label>*/}
-                        </div>
-
-                    </div>
-
-                    <div className="row form-group">
-                        <div className="input-field col s12">
-                            <input name="net_sales" placeholder="net sales" onBlur={this.changeValue.bind(this)} type="number" className="form-control form-control-lg  "/>
+                            <input name="net_total" placeholder="Net total" disabled  onBlur={this.changeValue.bind(this)} type="number" className="form-control form-control-lg  "/>
                             {/*<label htmlFor="first_name">First Name</label>*/}
                         </div>
 

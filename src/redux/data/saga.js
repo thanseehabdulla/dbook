@@ -95,7 +95,7 @@ function* workerGetSalesDataSaga() {
             url: API.SALES_API
         }
         const response = yield call(REQUEST.getData, body);
-        const data = response;
+        const data = response.data;
 
         // dispatch a success action to the store with the new dog
         // yield put({ type: "API_CALL_SUCCESS", data });
@@ -245,8 +245,7 @@ function* workerRegisterSalesSaga(payload) {
         let body = {
             body: {
                 date: payload.salesdata.date,
-                item_sold: payload.salesdata.item_sold,
-                gross_sales: payload.salesdata.gross_sales,
+                net_total: payload.salesdata.net_total,
                 tax: payload.salesdata.tax,
                 net_sales: payload.salesdata.net_sales,
 
