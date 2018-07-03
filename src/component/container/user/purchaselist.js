@@ -25,7 +25,9 @@ class Purchaselist extends Component {
     render() {
 
         const datas = this.props.data ? this.props.data.get('purchasedata') : {}
-        console.log(this.props.data)
+        
+        
+       console.log(this.props.data)
 
         return (
             <div className="App overallpaddingtable" style={{marginTop:'30px'}}>
@@ -39,8 +41,8 @@ class Purchaselist extends Component {
                                        filter={{type: 'TextFilter', delay: 1000}} columnClassName='td-header-string-example'>Id</TableHeaderColumn>
                     <TableHeaderColumn dataField='vendername' filter={{type: 'TextFilter', delay: 1000}}>Vender
                         name</TableHeaderColumn>
-                    <TableHeaderColumn dataField='trn_no' filter={{type: 'TextFilter', delay: 1000}}>trn
-                        no</TableHeaderColumn>
+                    <TableHeaderColumn dataField='trn_no' filter={{type: 'TextFilter', delay: 1000}}>Trn
+                        No</TableHeaderColumn>
                     <TableHeaderColumn dataField='date_invoice' filter={{type: 'TextFilter', delay: 1000}}>Date
                         invoice</TableHeaderColumn>
                     <TableHeaderColumn dataField='amount'

@@ -13,7 +13,7 @@ export default class Logins extends Component {
         return (
             <div className="App h-100 logpadding">
 
-     <h2>Log In to Dbook</h2>
+     <h2>Log In to dBook</h2>
      <p>Let's get started</p>        
 
 <Login/>

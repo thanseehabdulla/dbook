@@ -27,7 +27,7 @@ export default class Topbar extends Component {
                                             <a className="navbar-brand page-scroll sticky-logo" href="index.html">
                                                <div style={{display:'flex'}}>
                                                 <img src={a} width={35} height={35} style={{display:'inline',height:'35px'}}/>
-                                                <h1 style={{display:'inline'}}>Book</h1>
+                                                <h1 style={{display:'inline'}}>dBook</h1>
                                                </div>
                                             </a>
                                         </div>

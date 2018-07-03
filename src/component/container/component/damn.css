@@ -10,6 +10,12 @@
 }
 
 
+.overallpaddingtable2{
+    /*padding: 20px 140px;*/
+    margin: 0px 190px;
+}
+
+
 
 
 .button {
@@ -52,7 +58,7 @@
 .td-header-string-example{
     background-color: silver;
     color:white;
-}
+    }
 
 .navbar {
     margin-bottom: 0;

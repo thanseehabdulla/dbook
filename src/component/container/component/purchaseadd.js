@@ -76,7 +76,7 @@ class PurchaseAdd extends Component {
 
                     <div className="row form-group">
                         <div className="input-field col s12">
-                            <input name="invoice_number" placeholder="invoice_number" onBlur={this.changeValue.bind(this)}  type="text" className="form-control form-control-lg "/>
+                            <input name="invoice_number" placeholder="Invoice Number" onBlur={this.changeValue.bind(this)}  type="text" className="form-control form-control-lg "/>
                             {/*<label htmlFor="password">Password</label>*/}
                         </div>
                     </div>
@@ -85,7 +85,7 @@ class PurchaseAdd extends Component {
                             <div className="input-field col s12">
                                 <Select defaultValue="" onChange={
                                     (e)=> this.setState({vendername:e,trn_no:e.split('-')[1]})
-                                } className="form-control form-control-lg ">
+                                } className="form-control form-control-lg " placeholder="Vendor Name">
                                     {options}
                                 </Select>
 
@@ -96,7 +96,7 @@ class PurchaseAdd extends Component {
                         </div>
                     <div className="row form-group">
                         <div className="input-field col s12">
-                            <input name="trn_no" value={this.state.trn_no} placeholder="trn no" disabled onBlur={this.changeValue.bind(this)}  type="text" className="form-control form-control-lg "/>
+                            <input name="trn_no" value={this.state.trn_no} placeholder="Trn No" disabled onBlur={this.changeValue.bind(this)}  type="text" className="form-control form-control-lg "/>
                             {/*<label htmlFor="password">Password</label>*/}
                         </div>
                     </div>
@@ -124,7 +124,7 @@ class PurchaseAdd extends Component {
 
                     <div className="row form-group">
                         <div className="input-field col s12">
-                            <input name="vat" placeholder="vat" onChange={(e)=> {
+                            <input name="vat" placeholder="Vat" onChange={(e)=> {
                                 const {vat} = this.props;
                                 vat(e.target.value);
                             }
@@ -135,7 +135,7 @@ class PurchaseAdd extends Component {
 
                     <div className="row form-group">
                         <div className="input-field col s12">
-                            <input name="total" placeholder="total" value={totals} onBlur={this.changeValue.bind(this)}  type="number" className="form-control form-control-lg "/>
+                            <input name="total" placeholder="Total" value={totals} onBlur={this.changeValue.bind(this)}  type="number" className="form-control form-control-lg "/>
                             {/*<label htmlFor="password">Password</label>*/}
                         </div>
                     </div>
