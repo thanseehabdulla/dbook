@@ -1,4 +1,4 @@
-const BASE_URL = "http://ec2-34-210-111-75.us-west-2.compute.amazonaws.com:5000";
+const BASE_URL = "http://54.71.209.4:5000";
 
 const LOGIN_API = BASE_URL + "/api/login";
 
