@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 
 import {DATA_ACTIONS} from './../../../redux/data/actions'
-
+import { Breadcrumb } from 'antd';
 const {get_data} = DATA_ACTIONS
 
 
@@ -23,6 +23,10 @@ class Adminlist extends Component {
 
         return (
             <div className="App" style={{marginTop:'30px'}}>
+                {/*<Breadcrumb>*/}
+                    {/*<Breadcrumb.Item>Home</Breadcrumb.Item>*/}
+                    {/*<Breadcrumb.Item><a>Userlist</a></Breadcrumb.Item>*/}
+                {/*</Breadcrumb>*/}
                 {datas && <div style={{padding:'0pxx'}}><BootstrapTable data={datas} striped hover pagination keyBoardNav exportCSV data={ datas }
                                                                         tableHeaderClass='my-header-class'
                                                                         tableBodyClass='my-body-class'>

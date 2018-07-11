@@ -14,6 +14,8 @@ import './component/damn.css'
 import a from './component/carousalimage/1.jpg'
 import Logins from "./login";
 import {Animated} from "react-animated-css";
+import { BackTop } from 'antd';
+
 
 export default class Home extends Component {
     render() {
@@ -24,19 +26,7 @@ export default class Home extends Component {
                     <Topbar/>
                 </header>
 
-                    {/*<Carousal/>*/}
 
-
-
-                {/*</header>*/}
-        {/*<section>*/}
-                   {/*<Services/>*/}
-        {/*</section>*/}
-                {/*<Faq/>*/}
-                {/*<Pricing/>*/}
-                {/*<LatestNews/>*/}
-               {/**/}
-                {/*<Footer/>*/}
 
                 <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
                 <div className="jumbotron" style={{backgroundImage:`url(${a})`}}>
@@ -58,7 +48,7 @@ export default class Home extends Component {
                         <footer className="container-fluid text-center" style={{backgroundColor:'#ff8c00',paddingTop:'5px'}}>
                             <p style={{color:'white'}}>&copy; 2018 dbook.com</p>
                         </footer>
-
+                <BackTop />
 
             </div>
         );

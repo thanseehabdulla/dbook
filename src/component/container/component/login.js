@@ -7,6 +7,7 @@ import {Redirect, withRouter} from 'react-router-dom';
 import a from './../../../images/elogo.jpeg'
 import { Button, notification } from 'antd';
 import { Input} from 'antd';
+import { Menu, Icon } from 'antd';
 import 'antd/dist/antd.css'
 const {login,reset} = DATA_ACTIONS;
 
@@ -110,7 +111,7 @@ class Login extends Component {
                     </div>
 
                     <Button style={{backgroundColor:'#fa8c16'}} className="zoomIn btn btn-orange btn-block text-white btn-lg btn-rounded ld-ext-right"
-                            onClick={this.login.bind(this)}>Login
+                            onClick={this.login.bind(this)}><Icon type="login" /> Login
                     </Button>
 
                 </div>

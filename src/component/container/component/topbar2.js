@@ -28,7 +28,7 @@ class Topbar extends Component {
         <span className="icon-bar"></span>
       </button>
 
-        <a className="navbar-brand" style={{color:'white'}}><span style={{color:'3ec1d5'}}>d</span>Book</a>
+        <a className="navbar-brand" style={{color:'white'}}><Icon type="desktop" /><span style={{color:'3ec1d5'}}> d</span>Book</a>
     </div>
     <div className="collapse navbar-collapse" id="myNavbar">
       <ul className="nav navbar-nav">
@@ -38,8 +38,8 @@ class Topbar extends Component {
       </ul>
       <ul className="nav navbar-nav navbar-right">
         {/* <li><a href="#"><span className="glyphicon glyphicon-user"></span> Sign Up</a></li> */}
-          <li><a style={{color:'white'}}><span className="glyphicon glyphicon-user"></span>  Administrator</a></li>
-        <li><a onClick={this.logout.bind(this)}><span className="glyphicon glyphicon-log-in"></span>  Log Out</a></li>
+          <li><a style={{color:'white'}}><Icon type="user" />  Administrator</a></li>
+        <li><a onClick={this.logout.bind(this)}><Icon type="logout" />  Log Out</a></li>
       </ul>
     </div>
   </div>
