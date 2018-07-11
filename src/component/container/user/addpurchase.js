@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import PurchaseAdd from './../component/purchaseadd'
+import {withRouter} from "react-router-dom";
 
-export default class AddPurchase extends Component {
+class AddPurchase extends Component {
     render() {
         return (
             <div className="App">
@@ -15,4 +16,4 @@ export default class AddPurchase extends Component {
     }
 }
 
-
+export default withRouter(AddPurchase)
