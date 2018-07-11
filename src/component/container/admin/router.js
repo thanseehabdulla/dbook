@@ -7,6 +7,8 @@ import Adminlist from './adminlist';
 import Venderlist from './venderlist';
 import Add from './add';
 import Vender from './vender';
+import Purchaselist from "./purchaselist";
+import Saleslist from "./saleslist";
 
 
 const PublicRoutes = () => {
@@ -32,6 +34,14 @@ const PublicRoutes = () => {
                     <Route
                         path="/vender"
                         component={Vender}
+                    />
+                    <Route
+                        path="/reportpurchase"
+                        component={Purchaselist}
+                    />
+                    <Route
+                        path="/reportsales"
+                        component={Saleslist}
                     />
                     <Route
                         path="/"
