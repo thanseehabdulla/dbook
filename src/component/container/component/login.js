@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 import {Redirect, withRouter} from 'react-router-dom';
 import a from './../../../images/elogo.jpeg'
 import { Button, notification } from 'antd';
+import { Input} from 'antd';
 import 'antd/dist/antd.css'
 const {login,reset} = DATA_ACTIONS;
 
@@ -92,25 +93,25 @@ class Login extends Component {
 
 
                     <div className="row form-group">
-                        <div className="input-field col s12">
-                            <input name="username" onBlur={this.changeValue.bind(this)} id="email" type="text"
+                        <div className="Input-field col s12">
+                            <Input name="username" onBlur={this.changeValue.bind(this)} id="email" type="text"
                                    className="validate form-control form-control-lg "
                                    placeholder="username" style={{}}/>
                             {/*<label htmlFor="email">Email/username</label>*/}
                         </div>
                     </div>
                     <div className="row form-group">
-                        <div className="input-field col s12">
-                            <input name="password" id="password" onBlur={this.changeValue.bind(this)} type="password"
+                        <div className="Input-field col s12">
+                            <Input name="password" id="password" onBlur={this.changeValue.bind(this)} type="password"
                                    className="validate form-control form-control-sm "
                                    placeholder="password" style={{}}/>
                             {/*<label htmlFor="password">Password</label>*/}
                         </div>
                     </div>
 
-                    <button className="zoomIn btn btn-orange btn-block text-white btn-lg btn-rounded ld-ext-right"
+                    <Button style={{backgroundColor:'#fa8c16'}} className="zoomIn btn btn-orange btn-block text-white btn-lg btn-rounded ld-ext-right"
                             onClick={this.login.bind(this)}>Login
-                    </button>
+                    </Button>
 
                 </div>
             </div>
