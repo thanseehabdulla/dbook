@@ -1,3 +1,4 @@
 #!/bin/sh
 
-yarn start
+cd build
+serve -l 3000
