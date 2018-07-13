@@ -28,7 +28,7 @@ class Adminlist extends Component {
                     {/*<Breadcrumb.Item><a>Userlist</a></Breadcrumb.Item>*/}
                 {/*</Breadcrumb>*/}
                 {datas && <div style={{padding:'0pxx'}}><BootstrapTable data={datas} striped hover pagination keyBoardNav exportCSV data={ datas }
-                                                                        tableHeaderClass='my-header-class'
+                                                                        tableHeaderClass='my-header-class-admin'
                                                                         tableBodyClass='my-body-class'>
                     <TableHeaderColumn isKey dataField='name' filter={ { type: 'TextFilter', delay: 1000 } }>Name</TableHeaderColumn>
                     <TableHeaderColumn dataField='email' filter={ { type: 'TextFilter', delay: 1000 } }>Email</TableHeaderColumn>
