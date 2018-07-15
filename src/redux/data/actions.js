@@ -30,6 +30,18 @@ export const DATA_ACTIONS = {
     VAT:'VAt',
     AMNT:'AMNT',
     CLEAR:'CLEAR',
+    DELETE_VENDER:"DELETE_VENDER",
+    DELETE_USER:"DELETE_USER",
+    UPDATE_VENDER:"UPDATE_VENDER",
+    UPDATE_USER:"UPDATE_USER",
+    deleteVender:(venderid)=>({
+        type: DATA_ACTIONS.DELETE_VENDER,
+        venderid:venderid
+    }),
+    deleteUser:(userid)=>({
+        type: DATA_ACTIONS.DELETE_VENDER,
+        userid:userid
+    }),
     login: (user)=>({
        type: DATA_ACTIONS.API_LOGIN,
         userdata:user
@@ -69,8 +81,16 @@ export const DATA_ACTIONS = {
         type: DATA_ACTIONS.API_REGISTER,
         userdata:user
     }),
+    updateuser: (user)=>({
+        type: DATA_ACTIONS.UPDATE_USER,
+        userdata:user
+    }),
     registervender: (user)=>({
         type: DATA_ACTIONS.API_REGISTERVENDER,
+        userdata:user
+    }),
+    updatevender: (user)=>({
+        type: DATA_ACTIONS.UPDATE_VENDER,
         userdata:user
     }),
     register_purchase: (data)=>({
