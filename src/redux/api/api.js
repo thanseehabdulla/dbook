@@ -1,6 +1,6 @@
-// const BASE_URL = "http://54.71.209.4:5000";
-
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = "http://54.71.209.4:5000";
+// 
+// const BASE_URL = "http://localhost:5000";
 
 const LOGIN_API = BASE_URL + "/api/login";
 

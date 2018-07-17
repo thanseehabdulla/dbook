@@ -7,8 +7,11 @@ import { Menu, Icon } from 'antd';
 import {DATA_ACTIONS} from "../../redux/data/actions";
 import { Button, notification } from 'antd';
 import 'antd/dist/antd.css'
+import { Layout } from 'antd';
+import a from './../../images/elogo.jpeg'
 const {addreset} = DATA_ACTIONS;
 const SubMenu = Menu.SubMenu;
+const { Header, Content, Footer, Sider } = Layout;
 const MenuItemGroup = Menu.ItemGroup;
 class AdminDashboard extends Component {
 
@@ -35,15 +38,16 @@ class AdminDashboard extends Component {
 
         return (
             <div className="">
-                <Topbar/>
-                <section>
-                <div className="row">
-                    <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                        <HomeApp/>
-                    </div>
-                    <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                        <Menu
-                            style={{ width: 256 }}
+            <Layout>
+    <Sider
+      breakpoint="lg"
+      collapsedWidth="0"
+      onBreakpoint={(broken) => { console.log(broken); }}
+      onCollapse={(collapsed, type) => { console.log(collapsed, type); }}
+    >
+      <div className="logo" style={{ textAlign: 'center',padding: '60px 0px' }}><img src={a} width={85} height={85}/> </div>
+      <Menu
+                            style={{ width: 200 }}
                             defaultOpenKeys={['sub1','sub2','sub3']}
                             mode="inline"
                             theme="dark"
@@ -62,11 +66,22 @@ class AdminDashboard extends Component {
                                 {/*<Menu.Item key="6" ><a href="/admindashboard/reportsales">sales report</a></Menu.Item>*/}
                             {/*</SubMenu>*/}
                         </Menu>
-                    </div>
-
-
-                </div>
-                </section>
+    </Sider>
+    <Layout>
+      <Header style={{ background: '#fff', padding: 0 }} ><Topbar/></Header>
+      <Content style={{ margin: '24px 16px 0' }}>
+        <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
+        <HomeApp/>
+        </div>
+      </Content>
+      <Footer style={{ textAlign: 'center' }}>
+      dBytes.ae @ 2018
+      </Footer>
+    </Layout>
+  </Layout>
+                
+               
+               
             </div>
         );
     }

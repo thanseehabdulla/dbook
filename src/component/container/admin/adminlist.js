@@ -4,6 +4,7 @@ import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 
 import {DATA_ACTIONS} from './../../../redux/data/actions'
 import { Breadcrumb } from 'antd';
+import { Popconfirm, message } from 'antd';
 const {get_data,deleteUser,updateuser} = DATA_ACTIONS
 
   // If you want to enable deleteRow, you must enable row selection also.
@@ -55,7 +56,11 @@ class Adminlist extends Component {
        onBeforeSaveCell(row, cellName, cellValue) {
         // You can do any validation on here for editing value,
         // return false for reject the editing
+        if(window.confirm('Do you want to save edit')){
         return true;
+      }else{
+        return false;
+      }
       }
       
        cellEditProp = {
@@ -77,6 +82,7 @@ class Adminlist extends Component {
                     {/*<Breadcrumb.Item>Home</Breadcrumb.Item>*/}
                     {/*<Breadcrumb.Item><a>Userlist</a></Breadcrumb.Item>*/}
                 {/*</Breadcrumb>*/}
+                
                 {datas && <div style={{padding:'0pxx'}}><BootstrapTable data={datas}  deleteRow={ true }  cellEdit={ this.cellEditProp } search={ true } multiColumnSearch={ true } selectRow={ selectRowProp } striped hover pagination keyBoardNav exportCSV data={ datas }
                                                                         tableHeaderClass='my-header-class-admin'
                                                                         tableBodyClass='my-body-class'>
