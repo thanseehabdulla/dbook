@@ -20,7 +20,10 @@ export function* watcherSaga() {
     yield takeLatest(DATA_ACTIONS.DELETE_USER, workerdeleteUserSaga);
     yield takeLatest(DATA_ACTIONS.UPDATE_VENDER, workerUpdatevenderSaga);
     yield takeLatest(DATA_ACTIONS.UPDATE_USER, workerUpdateSaga);
+    yield takeLatest(DATA_ACTIONS.GET_PURCHASE_DATE, workerPurchaseDateSaga);
 }
+
+
 
 
 // worker saga: makes the api call when watcher saga sees the action
@@ -109,6 +112,7 @@ function* workerdeleteVenderSaga(payload) {
 
 // worker saga: makes the api call when watcher saga sees the action
 function* workerdeleteUserSaga(payload) {
+    console.log(payload.userid)
     try {
         let body = {
             url: API.USER_API+ "/" +payload.userid
@@ -234,6 +238,37 @@ function* workerGetPurchaseDataSaga() {
     try {
         let body = {
             url: API.PURCHASE_API + "/" + localStorage.getItem('userid',0)
+        }
+        const response = yield call(REQUEST.getData, body);
+        const data = response.data;
+
+        // dispatch a success action to the store with the new dog
+        // yield put({ type: "API_CALL_SUCCESS", data });
+
+
+        if (data.length > 0) {
+            yield put({
+                type: DATA_ACTIONS.GET_PURCHASESUCCESS,
+                purchasedata: data,
+
+            });
+            console.log('sucess get')
+        } else {
+            console.log('sucess failure')
+        }
+
+
+    } catch (error) {
+        // dispatch a failure action to the store with the error
+        // yield put({type: "API_CALL_FAILURE", error});
+    }
+}
+
+// worker saga: makes the api call when watcher saga sees the action
+function* workerPurchaseDateSaga(payload) {
+    try {
+        let body = {
+            url: API.PURCHASE_API+"/"+payload.startDate+"/"+payload.endDate
         }
         const response = yield call(REQUEST.getData, body);
         const data = response.data;

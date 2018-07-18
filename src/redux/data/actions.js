@@ -34,12 +34,18 @@ export const DATA_ACTIONS = {
     DELETE_USER:"DELETE_USER",
     UPDATE_VENDER:"UPDATE_VENDER",
     UPDATE_USER:"UPDATE_USER",
+    GET_PURCHASE_DATE:"GET_PURCHASE_DATE",
+    getPurchaseDate:(startDate,endDate)=>({
+        type: DATA_ACTIONS.GET_PURCHASE_DATE,
+        startDate:startDate,
+        endDate:endDate
+    }),
     deleteVender:(venderid)=>({
         type: DATA_ACTIONS.DELETE_VENDER,
         venderid:venderid
     }),
     deleteUser:(userid)=>({
-        type: DATA_ACTIONS.DELETE_VENDER,
+        type: DATA_ACTIONS.DELETE_USER,
         userid:userid
     }),
     login: (user)=>({

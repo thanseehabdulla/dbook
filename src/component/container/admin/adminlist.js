@@ -22,9 +22,9 @@ class Adminlist extends Component {
 
 
     options = {
-        afterDeleteRow: this.onAfterDeleteRow.bind(this),
-        afterSearch: this.afterSearch.bind(this)  // A hook for after droping rows.
-      };
+      afterDeleteRow: this.onAfterDeleteRow.bind(this),
+      afterSearch: this.afterSearch.bind(this)  // A hook for after droping rows.
+    };
  
    afterSearch(searchText, result) {
     console.log('Your search text is ' + searchText);
@@ -83,7 +83,7 @@ class Adminlist extends Component {
                     {/*<Breadcrumb.Item><a>Userlist</a></Breadcrumb.Item>*/}
                 {/*</Breadcrumb>*/}
                 
-                {datas && <div style={{padding:'0pxx'}}><BootstrapTable data={datas}  deleteRow={ true }  cellEdit={ this.cellEditProp } search={ true } multiColumnSearch={ true } selectRow={ selectRowProp } striped hover pagination keyBoardNav exportCSV data={ datas }
+                {datas && <div style={{padding:'0pxx'}}><BootstrapTable data={datas}  deleteRow={ true }  cellEdit={ this.cellEditProp } search={ true } multiColumnSearch={ true } options={ this.options } selectRow={ selectRowProp } striped hover pagination keyBoardNav exportCSV data={ datas }
                                                                         tableHeaderClass='my-header-class-admin'
                                                                         tableBodyClass='my-body-class'>
                                                                           <TableHeaderColumn dataField='id' isKey>User ID</TableHeaderColumn>
