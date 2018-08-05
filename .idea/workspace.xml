@@ -23,7 +23,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="adminlistPassword.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="adminlistPassword.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/component/container/admin/adminlistPassword.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="245">
@@ -34,6 +34,11 @@
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".htaccess" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/.htaccess">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="venderlist.js" pinned="false" current-in-tab="false">
@@ -222,60 +227,6 @@
               <item name="dbook-web-front-end" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="dbook-web-front-end" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dbook-web-front-end" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dbook-web-front-end" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dbook-web-front-end" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="component" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dbook-web-front-end" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dbook-web-front-end" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="component" type="462c0819:PsiDirectoryNode" />
-              <item name="container" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dbook-web-front-end" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dbook-web-front-end" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="component" type="462c0819:PsiDirectoryNode" />
-              <item name="container" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dbook-web-front-end" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dbook-web-front-end" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="component" type="462c0819:PsiDirectoryNode" />
-              <item name="container" type="462c0819:PsiDirectoryNode" />
-              <item name="component" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dbook-web-front-end" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dbook-web-front-end" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="redux" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dbook-web-front-end" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dbook-web-front-end" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="redux" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dbook-web-front-end" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dbook-web-front-end" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="redux" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -291,11 +242,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\thansee\dbook-web-front-end\public" />
       <recent name="E:\thansee\dbook-web-front-end\src\component\container\admin" />
       <recent name="$PROJECT_DIR$/src/component/container/component" />
       <recent name="$PROJECT_DIR$/src/component/container/admin" />
       <recent name="$PROJECT_DIR$/public" />
-      <recent name="$PROJECT_DIR$/src/images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/component/container/component/carousalimage" />
@@ -344,16 +295,15 @@
       <workItem from="1531323760829" duration="9512000" />
       <workItem from="1531409579231" duration="1481000" />
       <workItem from="1533446653389" duration="12032000" />
-      <workItem from="1533460944816" duration="10294000" />
+      <workItem from="1533460944816" duration="10958000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115570000" />
+    <option name="totallyTimeSpent" value="116234000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5014641" side_tool="true" weight="0.19582665" />
@@ -420,13 +370,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/component/container/component/login-signup.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/component/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5670">
@@ -823,6 +766,9 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/.htaccess">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
