@@ -57,6 +57,10 @@ function* workerLoginSaga(payload) {
 
 
         if (data === 'success') {
+            localStorage.setItem('logged','user')
+            localStorage.setItem('username',payload.userdata.username)
+            localStorage.setItem('userid',userid)
+            localStorage.setItem('level',level);
             yield put({
                 type: DATA_ACTIONS.LOGIN_SUCCESS,
                 username: payload.userdata.username,
@@ -65,10 +69,7 @@ function* workerLoginSaga(payload) {
                 token: 'loggedin'
             });
            console.log('sucess login')
-            localStorage.setItem('logged','user')
-            localStorage.setItem('username',payload.userdata.username)
-            localStorage.setItem('userid',userid)
-            localStorage.setItem('level',level);
+
         } else {
             console.log('sucess failure')
             yield put({

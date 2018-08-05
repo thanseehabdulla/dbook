@@ -1,13 +1,13 @@
 import React from 'react';
 import {Provider} from 'react-redux';
-import {store, history} from './../../../redux/store';
 import PublicRoutes from './router';
+import {history, store} from './../../../redux/store';
 import {withRouter} from "react-router-dom";
 
 const HomeApp = () =>
-  
-        <PublicRoutes/>
-  
+    <Provider store={store}>
+        <PublicRoutes history={history}/>
+    </Provider>
 
 
 export default withRouter(HomeApp);

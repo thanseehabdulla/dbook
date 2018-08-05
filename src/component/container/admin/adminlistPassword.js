@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import {Button, Form, Icon, Input, Popconfirm, Table} from 'antd';
+import {Button, Form, Icon, Input, Table} from 'antd';
 import {DATA_ACTIONS} from './../../../redux/data/actions'
 import ReactExport from "react-data-export";
 
@@ -120,7 +120,7 @@ class EditableCell extends React.Component {
 }
 
 
-class Adminlist extends Component {
+class AdminlistPassword extends Component {
 
     state = {
         selectedRowKeys: [],
@@ -143,8 +143,7 @@ class Adminlist extends Component {
         // alert(JSON.stringify(row));
         let rowStr = {};
         for (const prop in row) {
-            if (prop !== 'password')
-                rowStr[prop] = row[prop];
+            rowStr[prop] = row[prop];
         }
         if (window.confirm('Do you want to save edit')) {
             const {updateuser} = this.props;
@@ -173,7 +172,7 @@ class Adminlist extends Component {
                 title: 'Name',
                 dataIndex: 'name',
                 key: 'name',
-                editable: true,
+                editable: false,
                 filterDropdown: ({setSelectedKeys, selectedKeys, confirm, clearFilters}) => (
                     <div className="custom-filter-dropdown">
                         <Input
@@ -209,52 +208,19 @@ class Adminlist extends Component {
                 },
 
             }, {
-                title: 'Email',
-                dataIndex: 'email',
-                key: 'email',
+                title: 'Password',
+                dataIndex: 'password',
+                key: 'password',
                 editable: true,
                 render: (text, record) => {
                     return (
-                        <Popconfirm title="Sure to send bcc?"
-                                    onConfirm={() => window.location = 'https://mail.google.com/mail/?view=cm&fs=1&to=&su=SUBJECT&body=BODY&bcc=' + record.email}>
-                            <a href="javascript" target="_blank">{text}</a>
-                        </Popconfirm>
+
+                        <a href="javascript" target="_blank">******</a>
+
                     );
 
                 }
 
-            }, {
-                title: 'Username',
-                dataIndex: 'username',
-                key: 'username',
-                editable: true,
-            }, {
-                title: 'Phone',
-                dataIndex: 'phone',
-                key: 'phone',
-                editable: true,
-            }, {
-                title: 'Address',
-                dataIndex: 'address',
-                key: 'address',
-                editable: true,
-            }, {
-                title: 'Level',
-                dataIndex: 'level',
-                key: 'level',
-                editable: true,
-            },
-            {
-                title: 'Action',
-                key: 'action',
-                render: (text, record) => {
-                    return (
-                        <Popconfirm title="Sure to delete?" onConfirm={() => this.onAfterDeleteRow(record.id)}>
-                            <a href="javascript:;">Delete</a>
-                        </Popconfirm>
-                    );
-
-                }
             }
         ];
     }
@@ -350,21 +316,6 @@ class Adminlist extends Component {
 
         return (
             <div className="App" style={{marginTop: '30px'}}>
-                {datas && <ExcelFile element={<button style={{marginBottom:'20px'}}>Download Data</button>}>
-                    <ExcelSheet data={datas} name="User list">
-                        <ExcelColumn label="Name" value="name"/>
-                        <ExcelColumn label="Email" value="email"/>
-                        <ExcelColumn label="Username" value="username"/>
-                        <ExcelColumn label="Phone" value="phone"/>
-                        <ExcelColumn label="Address"
-                                     value="address"/>
-                        <ExcelColumn label="type"
-                                     value="level"
-                        />
-                    </ExcelSheet>
-                </ExcelFile>}
-
-
                 {datas &&
                 <Table components={components}
                        rowClassName={() => 'editable-row'}
@@ -379,4 +330,4 @@ export default connect(state => ({
     data: state.data
 }), {
     get_data, deleteUser, updateuser
-})(Adminlist)
+})(AdminlistPassword)

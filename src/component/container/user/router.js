@@ -1,8 +1,7 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
-import { BrowserRouter } from 'react-router-dom'
 import {connect} from 'react-redux';
-
+import { ConnectedRouter } from 'react-router-redux';
 import Purchaselist from './purchaselist';
 import Saleslist from './saleslist';
 
@@ -10,12 +9,11 @@ import AddPurchase from './addpurchase';
 import AddSales from './addsales';
 
 
-const PublicRoutes2 = () => {
+const PublicRoutes2 = ({history}) => {
     return (
-        <BrowserRouter  basename='/dashboard'>
+        <ConnectedRouter history={history}>
             <div>
                 <Switch>
-
 
 
                     <Route
@@ -23,7 +21,7 @@ const PublicRoutes2 = () => {
                         component={Purchaselist}
                     />
 
-                     <Route
+                    <Route
                         path="/saleslist"
                         component={Saleslist}
                     />
@@ -42,10 +40,10 @@ const PublicRoutes2 = () => {
                         path="/"
                         component={Purchaselist}
                     />
-                    
- </Switch>
+
+                </Switch>
             </div>
-        </BrowserRouter>
+        </ConnectedRouter>
     );
 };
 

@@ -5,9 +5,9 @@ import PublicRoutes2 from './router';
 import {withRouter} from "react-router-dom";
 
 const HomeApp1 = () =>
-  
-        <PublicRoutes2/>
-  
+    <Provider store={store}>
+        <PublicRoutes2 history={history}/>
+    </Provider>
 
 
 export default withRouter(HomeApp1);

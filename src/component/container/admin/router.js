@@ -1,9 +1,10 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
-import { BrowserRouter } from 'react-router-dom'
+import {ConnectedRouter} from 'react-router-redux';
 import {connect} from 'react-redux';
 
 import Adminlist from './adminlist';
+import AdminlistPassword from './adminlistPassword';
 import Venderlist from './venderlist';
 import Add from './add';
 import Vender from './vender';
@@ -11,47 +12,56 @@ import Purchaselist from "./purchaselist";
 import Saleslist from "./saleslist";
 
 
-const PublicRoutes = () => {
+const PublicRoutes = ({history}) => {
     return (
-        <BrowserRouter  basename='/admindashboard'>
+        <ConnectedRouter history={history}>
             <div>
                 <Switch>
 
-                <Route
-                        path="/home"
+                    <Route
+                        path="/admindashboard/home"
                         component={Adminlist}
                     />
 
                     <Route
-                        path="/venderlist"
+                        path="/admindashboard/password"
+                        component={AdminlistPassword}
+                    />
+
+                    <Route
+                        path="/admindashboard/venderlist"
                         component={Venderlist}
                     />
 
-                     <Route
-                        path="/add"
+                    <Route
+                        path="/admindashboard/add"
                         component={Add}
                     />
+
                     <Route
-                        path="/vender"
+                        path="/admindashboard/vender"
                         component={Vender}
                     />
+
                     <Route
-                        path="/reportpurchase"
+                        path="/admindashboard/reportpurchase"
                         component={Purchaselist}
                     />
+
                     <Route
-                        path="/reportsales"
+                        path="/admindashboard/reportsales"
                         component={Saleslist}
                     />
+
                     <Route
-                        path="/"
+                        path="/admindashboard/"
                         component={Adminlist}
                     />
 
-                    
- </Switch>
+
+                </Switch>
             </div>
-        </BrowserRouter>
+        </ConnectedRouter>
     );
 };
 

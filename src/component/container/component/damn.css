@@ -36,6 +36,52 @@
     font-size: 16px;
 }
 
+.editable-cell {
+    /*position: relative;*/
+}
+
+.ant-table-thead > tr > th, .ant-table-tbody > tr > td{
+    padding:8px !important;
+}
+
+.editable-cell-value-wrap {
+    padding: 0px 5px;
+    cursor: pointer;
+}
+
+.editable-row:hover .editable-cell-value-wrap {
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+
+.editable-row .ant-form-explain {
+    /*position: absolute;*/
+    font-size: 8px;
+    /*margin-top: -4px;*/
+}
+
+.custom-filter-dropdown {
+    padding: 8px;
+    border-radius: 6px;
+    background: #fff;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, .2);
+}
+
+.custom-filter-dropdown input {
+    width: 130px;
+    margin-right: 8px;
+}
+
+.custom-filter-dropdown button {
+    margin-right: 8px;
+}
+
+.highlight {
+    color: #f50;
+}
+
 
 .carousel-caption{
     bottom:58%;

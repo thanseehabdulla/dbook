@@ -32,8 +32,8 @@ export default class Home extends Component {
                 <div className="jumbotron" style={{backgroundImage:`url(${a})`}}>
                     <div className="container text-center">
                         <Animated animationIn="zoomIn" isVisible={true}>
-                        <h1 style={{color:'white',marginTop:'80px'}}>dBook</h1>
-                        <p style={{color:'white'}}>dBook is your comprehensive platform to manage everything you need to sell and grow your business</p>
+                        {/*<h1 style={{color:'white'}}>dBook</h1>*/}
+                        {/*<p style={{color:'white'}}>dBook is your comprehensive platform to manage everything you need to sell and grow your business</p>*/}
                         </Animated>
                     </div>
                 </div>

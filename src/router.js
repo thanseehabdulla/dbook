@@ -1,9 +1,7 @@
 import React from 'react';
-import {Route, Switch} from 'react-router-dom';
+import {Redirect, Route, Switch} from 'react-router-dom';
 import {ConnectedRouter} from 'react-router-redux';
 import {connect} from 'react-redux';
-
-import App from './component/container/App';
 import Home from './component/container/home';
 import Sinup from "./component/container/sinup";
 import Logins from "./component/container/login";
@@ -39,6 +37,11 @@ const PublicRoutes = ({history}) => {
                     <Route
                         path="/"
                         component={Home}
+                    />
+
+                    <Redirect
+                        from="*"
+                        to={'/404'}
                     />
 
 

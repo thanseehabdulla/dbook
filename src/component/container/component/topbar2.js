@@ -28,7 +28,7 @@ class Topbar extends Component {
         <span className="icon-bar"></span>
       </button>
 
-        <a className="navbar-brand" style={{color:'white'}}><Icon type="desktop" /><span style={{color:'3ec1d5'}}> d</span>Book</a>
+        <a className="navbar-brand" style={{color:'white'}}><Icon type="desktop" /></a>
     </div>
     <div className="collapse navbar-collapse" id="myNavbar">
       <ul className="nav navbar-nav">

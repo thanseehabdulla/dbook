@@ -59,10 +59,7 @@ class SignUp extends Component {
     render() {
         return (
             <div className="App overallpaddingadminadd">
-                <Breadcrumb>
-                    <Breadcrumb.Item>Home</Breadcrumb.Item>
-                    <Breadcrumb.Item><a>User add</a></Breadcrumb.Item>
-                </Breadcrumb>,
+
                 <div className="row form-group">
 
                         <div className="row form-group">

@@ -110,7 +110,7 @@ class Login extends Component {
                         </div>
                     </div>
 
-                    <Button style={{backgroundColor:'#fa8c16'}} className="zoomIn btn btn-orange btn-block text-white btn-lg btn-rounded ld-ext-right"
+                    <Button style={{backgroundColor:'#fa8c16'}} className="zoomIn btn btn-orange text-white ld-ext-right"
                             onClick={this.login.bind(this)}><Icon type="login" /> Login
                     </Button>
 
