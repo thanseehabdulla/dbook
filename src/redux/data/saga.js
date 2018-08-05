@@ -17,6 +17,8 @@ export function* watcherSaga() {
     yield takeLatest(DATA_ACTIONS.API_REGISTERSALES, workerRegisterSalesSaga);
     yield takeLatest(DATA_ACTIONS.API_LOGOUT2, workerLogoutSaga);
     yield takeLatest(DATA_ACTIONS.DELETE_VENDER, workerdeleteVenderSaga);
+    yield takeLatest(DATA_ACTIONS.DELETE_PURCHASE, workerdeletePurchaseSaga);
+    yield takeLatest(DATA_ACTIONS.DELETE_SALES, workerdeleteSalesSaga);
     yield takeLatest(DATA_ACTIONS.DELETE_USER, workerdeleteUserSaga);
     yield takeLatest(DATA_ACTIONS.UPDATE_VENDER, workerUpdatevenderSaga);
     yield takeLatest(DATA_ACTIONS.UPDATE_USER, workerUpdateSaga);
@@ -86,10 +88,10 @@ function* workerLoginSaga(payload) {
 
 
 // worker saga: makes the api call when watcher saga sees the action
-function* workerdeleteVenderSaga(payload) {
+function* workerdeletePurchaseSaga(payload) {
     try {
         let body = {
-            url: API.VENDER_API+ "/" +payload.venderid
+            url: API.PURCHASE_API+ "/" +payload.purchaseid
         }
         const response = yield call(REQUEST.deleteData, body);
         const data = response.data;
@@ -110,6 +112,61 @@ function* workerdeleteVenderSaga(payload) {
         // yield put({type: "API_CALL_FAILURE", error});
     }
 }
+
+
+// worker saga: makes the api call when watcher saga sees the action
+function* workerdeleteSalesSaga(payload) {
+    try {
+        let body = {
+            url: API.SALES_API+ "/" +payload.salesid
+        }
+        const response = yield call(REQUEST.deleteData, body);
+        const data = response.data;
+
+        // dispatch a success action to the store with the new dog
+        // yield put({ type: "API_CALL_SUCCESS", data });
+
+
+        if (data.length > 0) {
+
+        } else {
+            console.log('sucess failure')
+        }
+
+
+    } catch (error) {
+        // dispatch a failure action to the store with the error
+        // yield put({type: "API_CALL_FAILURE", error});
+    }
+}
+
+
+// worker saga: makes the api call when watcher saga sees the action
+function* workerdeleteVenderSaga(payload) {
+    try {
+        let body = {
+            url: API.VENDER_API+ "/" +payload.venderid
+        }
+        const response = yield call(REQUEST.deleteData, body);
+        const data = response.data;
+
+        // dispatch a success action to the store with the new dog
+        // yield put({ type: "API_CALL_SUCCESS", data });
+
+
+        if (data.length > 0) {
+
+        } else {
+            console.log('sucess failure')
+        }
+
+
+    } catch (error) {
+        // dispatch a failure action to the store with the error
+        // yield put({type: "API_CALL_FAILURE", error});
+    }
+}
+
 
 // worker saga: makes the api call when watcher saga sees the action
 function* workerdeleteUserSaga(payload) {

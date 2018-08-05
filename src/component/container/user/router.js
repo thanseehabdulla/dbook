@@ -17,22 +17,22 @@ const PublicRoutes2 = ({history}) => {
 
 
                     <Route
-                        path="dashboard/purchaselist"
+                        path="/dashboard/purchaselist"
                         component={Purchaselist}
                     />
 
                     <Route
-                        path="dashboard/saleslist"
+                        path="/dashboard/saleslist"
                         component={Saleslist}
                     />
 
                     <Route
-                        path="dashboard/purchaseadd"
+                        path="/dashboard/purchaseadd"
                         component={AddPurchase}
                     />
 
                     <Route
-                        path="dashboard/salesadd"
+                        path="/dashboard/salesadd"
                         component={AddSales}
                     />
 

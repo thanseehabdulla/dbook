@@ -32,6 +32,8 @@ export const DATA_ACTIONS = {
     CLEAR:'CLEAR',
     DELETE_VENDER:"DELETE_VENDER",
     DELETE_USER:"DELETE_USER",
+    DELETE_PURCHASE:"DELETE_PURCHASE",
+    DELETE_SALES:"DELETE_SALES",
     UPDATE_VENDER:"UPDATE_VENDER",
     UPDATE_USER:"UPDATE_USER",
     GET_PURCHASE_DATE:"GET_PURCHASE_DATE",
@@ -47,6 +49,14 @@ export const DATA_ACTIONS = {
     deleteUser:(userid)=>({
         type: DATA_ACTIONS.DELETE_USER,
         userid:userid
+    }),
+    deletePurchase:(userid)=>({
+        type: DATA_ACTIONS.DELETE_PURCHASE,
+        purchaseid:userid
+    }),
+    deleteSales:(userid)=>({
+        type: DATA_ACTIONS.DELETE_SALES,
+        salesid:userid
     }),
     login: (user)=>({
        type: DATA_ACTIONS.API_LOGIN,
