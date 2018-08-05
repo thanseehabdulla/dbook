@@ -19,7 +19,7 @@ class Topbar extends Component {
     render() {
         return (
             <div className="">
-<nav className="navbar navbar-inverse" style={{height:'10px',backgroundColor:'#ff8c00',color:'white'}}>
+<nav className="navbar navbar-inverse" style={{height:'10px',backgroundColor:'rgba(255, 140, 0, 0.89)',color:'white'}}>
   <div className="container-fluid">
     <div className="navbar-header">
       <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -27,7 +27,7 @@ class Topbar extends Component {
         <span className="icon-bar"></span>
         <span className="icon-bar"></span>                        
       </button>
-      <a className="navbar-brand" style={{color:'white'}}>dBook</a>
+        <a className="navbar-brand" style={{color:'white'}}><b>dBook</b></a>
     </div>
     <div className="collapse navbar-collapse" id="myNavbar">
       <ul className="nav navbar-nav">
@@ -43,7 +43,7 @@ class Topbar extends Component {
       </ul>
       <ul className="nav navbar-nav navbar-right">
         {/* <li><a href="#"><span className="glyphicon glyphicon-user"></span> Sign Up</a></li> */}
-          <li><a style={{color:'white'}}><span className="glyphicon glyphicon-user"></span> {localStorage.getItem('username','untitled')}</a></li>
+          <li><a style={{color:'white'}}><span className="glyphicon glyphicon-user"></span> <b>{localStorage.getItem('username','untitled')}</b></a></li>
         <li><a style={{color:'white'}} onClick={this.logout.bind(this)}><span className="glyphicon glyphicon-log-in"></span> Log Out</a></li>
       </ul>
     </div>
