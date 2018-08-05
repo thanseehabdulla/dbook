@@ -210,12 +210,80 @@ class Purchaselist extends Component {
             }, {
                 title: 'Trn No',
                 dataIndex: 'trn_no',
-                key: 'trn_no'
+                key: 'trn_no',
+                filterDropdown: ({setSelectedKeys, selectedKeys, confirm, clearFilters}) => (
+                    <div className="custom-filter-dropdown">
+                        <Input
+                            ref={ele => this.searchInput = ele}
+                            placeholder="Search name"
+                            value={selectedKeys[0]}
+                            onChange={e => setSelectedKeys(e.target.value ? [e.target.value] : [])}
+                            onPressEnter={this.handleSearch(selectedKeys, confirm)}
+                        />
+                        <Button type="primary" onClick={this.handleSearch(selectedKeys, confirm)}>Search</Button>
+                        <Button onClick={this.handleReset(clearFilters)}>Reset</Button>
+                    </div>
+                ),
+                filterIcon: filtered => <Icon type="search" style={{color: filtered ? '#108ee9' : '#aaa'}}/>,
+                onFilter: (value, record) => record.trn_no.toLowerCase().includes(value.toLowerCase()),
+                onFilterDropdownVisibleChange: (visible) => {
+                    if (visible) {
+                        setTimeout(() => {
+                            this.searchInput.focus();
+                        });
+                    }
+                },
+                render: (text) => {
+                    const {searchText} = this.state;
+                    return searchText ? (
+                        <span>
+            {text.split(new RegExp(`(?<=${searchText})|(?=${searchText})`, 'i')).map((fragment, i) => (
+                fragment.toLowerCase() === searchText.toLowerCase()
+                    ? <span key={i} className="highlight">{fragment}</span> : fragment // eslint-disable-line
+            ))}
+          </span>
+                    ) : text;
+                },
+
 
             }, {
                 title: 'Date Invoice',
                 dataIndex: 'date_invoice',
-                key: 'date_invoice'
+                key: 'date_invoice',
+                filterDropdown: ({setSelectedKeys, selectedKeys, confirm, clearFilters}) => (
+                    <div className="custom-filter-dropdown">
+                        <Input
+                            ref={ele => this.searchInput = ele}
+                            placeholder="Search name"
+                            value={selectedKeys[0]}
+                            onChange={e => setSelectedKeys(e.target.value ? [e.target.value] : [])}
+                            onPressEnter={this.handleSearch(selectedKeys, confirm)}
+                        />
+                        <Button type="primary" onClick={this.handleSearch(selectedKeys, confirm)}>Search</Button>
+                        <Button onClick={this.handleReset(clearFilters)}>Reset</Button>
+                    </div>
+                ),
+                filterIcon: filtered => <Icon type="search" style={{color: filtered ? '#108ee9' : '#aaa'}}/>,
+                onFilter: (value, record) => record.date_invoice.toLowerCase().includes(value.toLowerCase()),
+                onFilterDropdownVisibleChange: (visible) => {
+                    if (visible) {
+                        setTimeout(() => {
+                            this.searchInput.focus();
+                        });
+                    }
+                },
+                render: (text) => {
+                    const {searchText} = this.state;
+                    return searchText ? (
+                        <span>
+            {text.split(new RegExp(`(?<=${searchText})|(?=${searchText})`, 'i')).map((fragment, i) => (
+                fragment.toLowerCase() === searchText.toLowerCase()
+                    ? <span key={i} className="highlight">{fragment}</span> : fragment // eslint-disable-line
+            ))}
+          </span>
+                    ) : text;
+                },
+
 
             }, {
                 title: 'Amount',

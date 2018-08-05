@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import {Button, Form, Icon, Input, Table} from 'antd';
+import {Button, Form, Icon, Input, Table, Popconfirm} from 'antd';
 import {DATA_ACTIONS} from './../../../redux/data/actions'
 import ReactExport from "react-data-export";
 
@@ -207,7 +207,22 @@ class AdminlistPassword extends Component {
                     ) : text;
                 },
 
-            }, {
+            },{
+                title: 'Email',
+                dataIndex: 'email',
+                key: 'email',
+                render: (text, record) => {
+                    return (
+                        <Popconfirm title="Sure to send bcc?"
+                                    onConfirm={() => window.location = 'https://mail.google.com/mail/?view=cm&fs=1&to=&su=SUBJECT&body=BODY&bcc=' + record.email}>
+                            <a href="javascript" target="_blank">{text}</a>
+                        </Popconfirm>
+                    );
+
+                }
+
+            },
+            {
                 title: 'Password',
                 dataIndex: 'password',
                 key: 'password',
