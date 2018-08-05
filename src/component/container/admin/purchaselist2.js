@@ -3,24 +3,31 @@ import {connect} from "react-redux";
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 
 import {DATA_ACTIONS} from './../../../redux/data/actions'
-
+import { Input } from 'antd';
 import ReactExport from "react-data-export";
-
+import { DatePicker } from 'antd';
+const { MonthPicker, RangePicker, WeekPicker } = DatePicker;
 const ExcelFile = ReactExport.ExcelFile;
 const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
 const ExcelColumn = ReactExport.ExcelFile.ExcelColumn;
 
-const {get_purchase} = DATA_ACTIONS
+const {getPurchaseDate} = DATA_ACTIONS
 
 
-class Purchaselist2 extends Component {
+class Purchaselist extends Component {
 
     componentDidMount() {
-        const {get_purchase} = this.props;
-        get_purchase();
+       
         console.log(this.props.data)
     }
 
+    onChange(date, dateString) {
+        console.log(date, dateString);
+        alert(date)
+        alert(dateString[0])
+        const {getPurchaseDate} = this.props;
+        getPurchaseDate(dateString[0],dateString[1]);
+    }
 
     render() {
 
@@ -31,8 +38,9 @@ class Purchaselist2 extends Component {
 
         return (
             <div className="App overallpaddingtable" style={{marginTop:'30px'}}>
-
-
+                <RangePicker onChange={this.onChange.bind(this)} />
+                <br/>
+              
                 {((localStorage.getItem('level') === 'admin') && datas) &&
                 <div style={{padding: '0px'}}><BootstrapTable data={datas} striped hover pagination keyBoardNav exportCSV data={ datas }
                                                               tableHeaderClass='my-header-class'
@@ -99,5 +107,5 @@ class Purchaselist2 extends Component {
 
 export default connect(state => ({
     data: state.data
-}), {get_purchase
-})(Purchaselist2)
+}), {getPurchaseDate
+})(Purchaselist)

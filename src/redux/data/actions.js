@@ -37,8 +37,14 @@ export const DATA_ACTIONS = {
     UPDATE_VENDER:"UPDATE_VENDER",
     UPDATE_USER:"UPDATE_USER",
     GET_PURCHASE_DATE:"GET_PURCHASE_DATE",
+    GET_SALES_DATE:"GET_SALES_DATE",
     getPurchaseDate:(startDate,endDate)=>({
         type: DATA_ACTIONS.GET_PURCHASE_DATE,
+        startDate:startDate,
+        endDate:endDate
+    }),
+    getSalesDate:(startDate,endDate)=>({
+        type: DATA_ACTIONS.GET_SALES_DATE,
         startDate:startDate,
         endDate:endDate
     }),

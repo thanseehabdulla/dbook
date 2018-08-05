@@ -23,6 +23,7 @@ export function* watcherSaga() {
     yield takeLatest(DATA_ACTIONS.UPDATE_VENDER, workerUpdatevenderSaga);
     yield takeLatest(DATA_ACTIONS.UPDATE_USER, workerUpdateSaga);
     yield takeLatest(DATA_ACTIONS.GET_PURCHASE_DATE, workerPurchaseDateSaga);
+    yield takeLatest(DATA_ACTIONS.GET_SALES_DATE, workerSalesDateSaga);
 }
 
 
@@ -321,6 +322,39 @@ function* workerGetPurchaseDataSaga() {
         // yield put({type: "API_CALL_FAILURE", error});
     }
 }
+
+
+// worker saga: makes the api call when watcher saga sees the action
+function* workerSalesDateSaga(payload) {
+    try {
+        let body = {
+            url: API.SALES_API+"/"+payload.startDate+"/"+payload.endDate
+        }
+        const response = yield call(REQUEST.getData, body);
+        const data = response.data;
+
+        // dispatch a success action to the store with the new dog
+        // yield put({ type: "API_CALL_SUCCESS", data });
+
+
+        if (data.length > 0) {
+            yield put({
+                type: DATA_ACTIONS.GET_SALESSUCCESS,
+                salesdata: data,
+
+            });
+            console.log('sucess get')
+        } else {
+            console.log('sucess failure')
+        }
+
+
+    } catch (error) {
+        // dispatch a failure action to the store with the error
+        // yield put({type: "API_CALL_FAILURE", error});
+    }
+}
+
 
 // worker saga: makes the api call when watcher saga sees the action
 function* workerPurchaseDateSaga(payload) {
