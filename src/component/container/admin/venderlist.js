@@ -353,7 +353,7 @@ class Venderlist extends Component {
 
         return (
             <div className="App" style={{marginTop: '30px'}}>
-                {datas && <ExcelFile element={<button style={{marginBottom:'20px'}}>Download Data</button>}>
+                {datas && <ExcelFile element={<button className="zoomIn btn btn-orange text-white ld-ext-right" style={{marginBottom:'20px'}}>Download Data</button>}>
                     <ExcelSheet data={datas} name="User list">
                         <ExcelColumn label="Vender Name" value="name"/>
                         <ExcelColumn label="Trn No" value="trn_no"/>

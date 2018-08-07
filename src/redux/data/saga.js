@@ -22,6 +22,8 @@ export function* watcherSaga() {
     yield takeLatest(DATA_ACTIONS.DELETE_USER, workerdeleteUserSaga);
     yield takeLatest(DATA_ACTIONS.UPDATE_VENDER, workerUpdatevenderSaga);
     yield takeLatest(DATA_ACTIONS.UPDATE_USER, workerUpdateSaga);
+     yield takeLatest(DATA_ACTIONS.UPDATE_PURCHASE, workerUpdatePurchaseSaga);
+      yield takeLatest(DATA_ACTIONS.UPDATE_SALES, workerUpdateSalesSaga);
     yield takeLatest(DATA_ACTIONS.GET_PURCHASE_DATE, workerPurchaseDateSaga);
     yield takeLatest(DATA_ACTIONS.GET_SALES_DATE, workerSalesDateSaga);
 }
@@ -480,6 +482,98 @@ function* workerUpdateSaga(payload) {
     }
 }
 
+
+// worker saga: makes the api call when watcher saga sees the action
+function* workerUpdatePurchaseSaga(payload) {
+    try {
+        let body = {
+            body: {
+                vendername: payload.purchasedata.vendername,
+                trn_no: payload.purchasedata.trn_no,
+                date_invoice: payload.purchasedata.date_invoice,
+                amount: payload.purchasedata.amount,
+                vat: payload.purchasedata.vat,
+                total: payload.purchasedata.total,
+                invoice_number: payload.purchasedata.invoice_number,
+                userid: payload.purchasedata.userid,
+                id: payload.purchasedata.id
+            },
+            url: API.PURCHASE_API
+        }
+
+       
+        const response = yield call(REQUEST.putData, body);
+        const data = response.status;
+
+        // dispatch a success action to the store with the new dog
+        // yield put({ type: "API_CALL_SUCCESS", data });
+
+
+        if (data === 'success') {
+            // yield put({
+            //     type: DATA_ACTIONS.LOGIN_SUCCESS,
+            //     username: payload.userdata.username,
+            //     token: 'loggedin'
+            // });
+            console.log('sucess register')
+            // yield put({
+            //     type: DATA_ACTIONS.ADD,
+            // });
+        } else {
+            console.log('sucess failure')
+        }
+
+
+    } catch (error) {
+        // dispatch a failure action to the store with the error
+        // yield put({type: "API_CALL_FAILURE", error});
+    }
+}
+
+
+// worker saga: makes the api call when watcher saga sees the action
+function* workerUpdateSalesSaga(payload) {
+    try {
+        let body = {
+            body: {
+                date: payload.salesdata.date,
+                net_sales: payload.salesdata.net_sales,
+                tax: payload.salesdata.tax,
+                net_total: payload.salesdata.net_total,
+                userid: payload.salesdata.userid,
+                id: payload.salesdata.id
+            },
+            url: API.SALES_API
+        }
+
+        console.log(payload.userdata.level);
+        const response = yield call(REQUEST.putData, body);
+        const data = response.status;
+
+        // dispatch a success action to the store with the new dog
+        // yield put({ type: "API_CALL_SUCCESS", data });
+
+
+        if (data === 'success') {
+            // yield put({
+            //     type: DATA_ACTIONS.LOGIN_SUCCESS,
+            //     username: payload.userdata.username,
+            //     token: 'loggedin'
+            // });
+            console.log('sucess register')
+            // yield put({
+            //     type: DATA_ACTIONS.ADD,
+            // });
+        } else {
+            console.log('sucess failure')
+        }
+
+
+    } catch (error) {
+        // dispatch a failure action to the store with the error
+        // yield put({type: "API_CALL_FAILURE", error});
+    }
+}
 
 // worker saga: makes the api call when watcher saga sees the action
 function* workerRegistervenderSaga(payload) {

@@ -407,7 +407,7 @@ class Adminlist extends Component {
 
         return (
             <div className="App" style={{marginTop: '30px'}}>
-                {datas && <ExcelFile element={<button style={{marginBottom:'20px'}}>Download Data</button>}>
+                {datas && <ExcelFile element={<button className="zoomIn btn btn-orange text-white ld-ext-right" style={{marginBottom:'20px'}}>Download Data</button>}>
                     <ExcelSheet data={datas} name="User list">
                         <ExcelColumn label="Name" value="name"/>
                         <ExcelColumn label="Email" value="email"/>

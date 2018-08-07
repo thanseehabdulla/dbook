@@ -329,7 +329,7 @@ class Saleslist extends Component {
 
         return (
             <div className="App" style={{marginTop: '30px'}}>
-                {datas && localStorage.getItem('level') === 'admin' && <ExcelFile element={<button style={{marginBottom:'20px'}}>Download Data</button>}>
+                {datas && localStorage.getItem('level') === 'admin' && <ExcelFile element={<button className="zoomIn btn btn-orange text-white ld-ext-right" style={{marginBottom:'20px'}}>Download Data</button>}>
                     <ExcelSheet data={datas} name="User list">
                         <ExcelColumn label="Date"
                                      value="date"/>

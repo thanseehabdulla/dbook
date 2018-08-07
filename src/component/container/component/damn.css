@@ -24,6 +24,9 @@
 
 
 
+
+
+
 .button {
     background-color: #13af36; /* Green */
     border: none;
@@ -42,6 +45,17 @@
 
 .ant-table-thead > tr > th, .ant-table-tbody > tr > td{
     padding:8px !important;
+}
+
+input:focus {
+    background-color: white;
+    outline-color:orange;
+    border-color: orange;
+}
+
+.editable-cell-value-wrap {
+    padding: 0px 5px;
+    cursor: pointer;
 }
 
 .editable-cell-value-wrap {

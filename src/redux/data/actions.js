@@ -36,6 +36,8 @@ export const DATA_ACTIONS = {
     DELETE_SALES:"DELETE_SALES",
     UPDATE_VENDER:"UPDATE_VENDER",
     UPDATE_USER:"UPDATE_USER",
+    UPDATE_PURCHASE:"UPDATE_PURCHASE",
+      UPDATE_SALES:"UPDATE_SALES",
     GET_PURCHASE_DATE:"GET_PURCHASE_DATE",
     GET_SALES_DATE:"GET_SALES_DATE",
     getPurchaseDate:(startDate,endDate)=>({
@@ -106,6 +108,14 @@ export const DATA_ACTIONS = {
     updateuser: (user)=>({
         type: DATA_ACTIONS.UPDATE_USER,
         userdata:user
+    }),
+    updatePurchase:(user)=>({
+        type: DATA_ACTIONS.UPDATE_PURCHASE,
+        purchasedata:user
+    }),
+    updateSales:(user)=>({
+        type: DATA_ACTIONS.UPDATE_SALES,
+        salesdata:user
     }),
     registervender: (user)=>({
         type: DATA_ACTIONS.API_REGISTERVENDER,

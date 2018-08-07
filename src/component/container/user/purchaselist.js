@@ -9,7 +9,7 @@ const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
 const ExcelColumn = ReactExport.ExcelFile.ExcelColumn;
 
 
-const {get_purchase, deletePurchase} = DATA_ACTIONS;
+const {get_purchase, deletePurchase, updatePurchase} = DATA_ACTIONS;
 
 // If you want to enable deleteRow, you must enable row selection also.
 const selectRowProp = {
@@ -143,12 +143,11 @@ class Purchaselist extends Component {
         // alert(JSON.stringify(row));
         let rowStr = {};
         for (const prop in row) {
-            if (prop !== 'password')
                 rowStr[prop] = row[prop];
         }
         if (window.confirm('Do you want to save edit')) {
-            const {updateuser} = this.props;
-            updateuser(rowStr);
+            const {updatePurchase} = this.props;
+            updatePurchase(rowStr);
             alert("Edited Successful..Please Wait");
             window.location.reload();
         } else {
@@ -406,7 +405,7 @@ class Purchaselist extends Component {
 
         return (
             <div className="App" style={{marginTop: '30px'}}>
-                {datas && localStorage.getItem('level') === 'admin' && <ExcelFile element={<button style={{marginBottom:'20px'}}>Download Data</button>}>
+                {datas && localStorage.getItem('level') === 'admin' && <ExcelFile element={<button className="zoomIn btn btn-orange text-white ld-ext-right" style={{marginBottom:'20px'}}>Download Data</button>}>
                     <ExcelSheet data={datas} name="User list">
                         <ExcelColumn label="invoice_number"
                                      value="invoice_number"/>
@@ -442,5 +441,5 @@ class Purchaselist extends Component {
 export default connect(state => ({
     data: state.data
 }), {
-    get_purchase, deletePurchase
+    get_purchase, deletePurchase, updatePurchase
 })(Purchaselist)

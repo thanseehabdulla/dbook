@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import {Button, DatePicker, Form, Icon, Input, Popconfirm, Table} from 'antd';
+import {Button, DatePicker, Form, Icon, Input, Popconfirm, Table, Select} from 'antd';
 import {DATA_ACTIONS} from './../../../redux/data/actions'
 import ReactExport from "react-data-export";
 
@@ -360,7 +360,7 @@ class Purchaselist extends Component {
                 <RangePicker format="MM-DD-YYYY" onChange={this.onChange.bind(this)}/>
                 <br/>
 
-                {datas && <ExcelFile element={<button style={{marginBottom: '20px'}}>Download Data</button>}>
+                {datas && <ExcelFile element={<button className="zoomIn btn btn-orange text-white ld-ext-right" style={{marginBottom: '20px'}}>Download Data</button>}>
                     <ExcelSheet data={datas} name="User list">
                         <ExcelColumn label="invoice_number"
                                      value="invoice_number"/>

@@ -349,7 +349,7 @@ class Saleslist extends Component {
                 <RangePicker format="MM-DD-YYYY" onChange={this.onChange.bind(this)}/>
                 <br/>
 
-                {datas && <ExcelFile element={<button style={{marginBottom: '20px'}}>Download Data</button>}>
+                {datas && <ExcelFile element={<button className="zoomIn btn btn-orange text-white ld-ext-right" style={{marginBottom: '20px'}}>Download Data</button>}>
                     <ExcelSheet data={datas} name="User list">
                         <ExcelColumn label="Date"
                                      value="date"/>
