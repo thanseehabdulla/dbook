@@ -143,8 +143,10 @@ class Purchaselist extends Component {
         // alert(JSON.stringify(row));
         let rowStr = {};
         for (const prop in row) {
-                rowStr[prop] = row[prop];
+             if (prop !== 'total')
+            rowStr[prop] = row[prop];
         }
+        rowStr['total'] = (parseFloat(rowStr['amount']) + parseFloat(rowStr['vat'])).toString();
         if (window.confirm('Do you want to save edit')) {
             const {updatePurchase} = this.props;
             updatePurchase(rowStr);
@@ -172,6 +174,7 @@ class Purchaselist extends Component {
                 title: 'Vender Name',
                 dataIndex: 'vendername',
                 key: 'vendername',
+                  editable: true,
                 filterDropdown: ({setSelectedKeys, selectedKeys, confirm, clearFilters}) => (
                     <div className="custom-filter-dropdown">
                         <Input
@@ -210,6 +213,7 @@ class Purchaselist extends Component {
                 title: 'Trn No',
                 dataIndex: 'trn_no',
                 key: 'trn_no',
+                  editable: true,
                 filterDropdown: ({setSelectedKeys, selectedKeys, confirm, clearFilters}) => (
                     <div className="custom-filter-dropdown">
                         <Input
@@ -249,6 +253,7 @@ class Purchaselist extends Component {
                 title: 'Date Invoice',
                 dataIndex: 'date_invoice',
                 key: 'date_invoice',
+                  editable: true,
                 filterDropdown: ({setSelectedKeys, selectedKeys, confirm, clearFilters}) => (
                     <div className="custom-filter-dropdown">
                         <Input
@@ -287,11 +292,14 @@ class Purchaselist extends Component {
             }, {
                 title: 'Amount',
                 dataIndex: 'amount',
+                  editable: true,
                 key: 'amount'
+
 
             }, {
                 title: 'Vat',
                 dataIndex: 'vat',
+                  editable: true,
                 key: 'vat'
 
             }, {

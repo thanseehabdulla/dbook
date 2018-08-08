@@ -546,7 +546,7 @@ function* workerUpdateSalesSaga(payload) {
             url: API.SALES_API
         }
 
-        console.log(payload.userdata.level);
+        // console.log(payload.userdata.level);
         const response = yield call(REQUEST.putData, body);
         const data = response.status;
 

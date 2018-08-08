@@ -9,7 +9,7 @@ const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
 const ExcelColumn = ReactExport.ExcelFile.ExcelColumn;
 
 
-const {get_sales, deleteSales} = DATA_ACTIONS;
+const {get_sales, deleteSales, updateSales} = DATA_ACTIONS;
 
 // If you want to enable deleteRow, you must enable row selection also.
 const selectRowProp = {
@@ -143,12 +143,13 @@ class Saleslist extends Component {
         // alert(JSON.stringify(row));
         let rowStr = {};
         for (const prop in row) {
-            if (prop !== 'password')
+            if (prop !== 'net_total')
                 rowStr[prop] = row[prop];
         }
+          rowStr['net_total'] = (parseFloat(rowStr['net_sales']) + parseFloat(rowStr['tax'])).toString();
         if (window.confirm('Do you want to save edit')) {
-            const {updateuser} = this.props;
-            updateuser(rowStr);
+            const {updateSales} = this.props;
+            updateSales(rowStr);
             alert("Edited Successful..Please Wait");
             window.location.reload();
         } else {
@@ -173,6 +174,7 @@ class Saleslist extends Component {
                 title: 'Date',
                 dataIndex: 'date',
                 key: 'date',
+                 editable: true,
                 filterDropdown: ({setSelectedKeys, selectedKeys, confirm, clearFilters}) => (
                     <div className="custom-filter-dropdown">
                         <Input
@@ -210,11 +212,14 @@ class Saleslist extends Component {
             }, {
                 title: 'Net Sales',
                 dataIndex: 'net_sales',
+                 editable: true,
                 key: 'net_sales'
+
 
             }, {
                 title: 'Tax',
                 dataIndex: 'tax',
+                 editable: true,
                 key: 'tax'
 
             }, {
@@ -353,5 +358,5 @@ class Saleslist extends Component {
 export default connect(state => ({
     data: state.data
 }), {
-    get_sales, deleteSales
+    get_sales, deleteSales, updateSales
 })(Saleslist)
