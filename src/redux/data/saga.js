@@ -330,7 +330,7 @@ function* workerGetPurchaseDataSaga() {
 function* workerSalesDateSaga(payload) {
     try {
         let body = {
-            url: API.SALES_API+"/"+payload.startDate+"/"+payload.endDate
+            url: API.SALES_API+"/"+payload.startDate+"/"+payload.endDate+"/"+payload.client
         }
         const response = yield call(REQUEST.getData, body);
         const data = response.data;
@@ -362,7 +362,7 @@ function* workerSalesDateSaga(payload) {
 function* workerPurchaseDateSaga(payload) {
     try {
         let body = {
-            url: API.PURCHASE_API+"/"+payload.startDate+"/"+payload.endDate
+            url: API.PURCHASE_API+"/"+payload.startDate+"/"+payload.endDate+"/"+payload.client
         }
         const response = yield call(REQUEST.getData, body);
         const data = response.data;

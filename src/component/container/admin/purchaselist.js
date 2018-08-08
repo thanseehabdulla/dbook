@@ -3,15 +3,14 @@ import {connect} from "react-redux";
 import {Button, DatePicker, Form, Icon, Input, Popconfirm, Table, Select} from 'antd';
 import {DATA_ACTIONS} from './../../../redux/data/actions'
 import ReactExport from "react-data-export";
-
 const {MonthPicker, RangePicker, WeekPicker} = DatePicker;
-
+const Option = Select.Option
 const ExcelFile = ReactExport.ExcelFile;
 const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
 const ExcelColumn = ReactExport.ExcelFile.ExcelColumn;
 
 
-const {getPurchaseDate, deletePurchase} = DATA_ACTIONS;
+const {getPurchaseDate, deletePurchase, get_data} = DATA_ACTIONS;
 
 // If you want to enable deleteRow, you must enable row selection also.
 const selectRowProp = {
@@ -128,7 +127,8 @@ class Purchaselist extends Component {
         selectedRowKeys: [],
         datas: null,
         searchText: '',
-        vendername: null
+        vendername: null,
+        clientname:'default'
     }
     onSelectChange = (selectedRowKeys) => {
         console.log('selectedRowKeys changed: ', selectedRowKeys);
@@ -257,7 +257,7 @@ class Purchaselist extends Component {
         // alert(dateString[1])
         const {getPurchaseDate} = this.props;
         // const vendernam = (this.state.vendername !== null||this.state.vendername !== ' ')? this.state.vendername : 'blank'
-        getPurchaseDate(dateString[0], dateString[1]);
+        getPurchaseDate(dateString[0], dateString[1],this.state.clientname);
     }
 
     onAfterDeleteRow(rowKeys) {
@@ -285,8 +285,8 @@ class Purchaselist extends Component {
 
 
     componentDidMount() {
-        // const {get_purchase} = this.props;
-        // get_purchase();
+        const {get_data} = this.props;
+        get_data();
         console.log(this.props.data)
     }
 
@@ -326,7 +326,14 @@ class Purchaselist extends Component {
 
     }
 
+
+handleChange(e) {
+  this.setState({clientname: e});
+   }
+
+
     render() {
+         const userdatas = this.props.data ? this.props.data.get('userdata') : {}
 
         const datas = this.props.data ? this.props.data.get('purchasedata') : {}
         console.log(this.props.data)
@@ -353,14 +360,31 @@ class Purchaselist extends Component {
                 }),
             };
         });
+   let options = (userdatas || []).map((item, index) => {
+            return <Option value={item['id']} key={item['name']}>{(item['name'])}</Option>;
+        });
+
 
         return (
             <div className="App" style={{marginTop: '30px'}}>
                 {/*<Input placeholder="Vender Name" onBlur={this.saveVenderName.bind(this)}/>*/}
+
+                  <Select
+    showSearch
+    style={{ width: 200 }}
+    placeholder="Select a person"
+    optionFilterProp="children"
+    onChange={this.handleChange.bind(this)}
+    filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
+  >
+{options}
+
+  </Select>
+
                 <RangePicker format="MM-DD-YYYY" onChange={this.onChange.bind(this)}/>
                 <br/>
 
-                {datas && <ExcelFile element={<button className="zoomIn btn btn-orange text-white ld-ext-right" style={{marginBottom: '20px'}}>Download Data</button>}>
+                {datas && <ExcelFile element={<button className="zoomIn btn btn-orange text-white ld-ext-right" style={{margin: '20px 0px'}}>Download Data</button>}>
                     <ExcelSheet data={datas} name="User list">
                         <ExcelColumn label="invoice_number"
                                      value="invoice_number"/>
@@ -396,5 +420,5 @@ class Purchaselist extends Component {
 export default connect(state => ({
     data: state.data
 }), {
-    getPurchaseDate, deletePurchase
+    getPurchaseDate, deletePurchase,get_data
 })(Purchaselist)

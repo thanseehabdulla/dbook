@@ -79,7 +79,7 @@ class PurchaseAdd extends Component {
 
                     <div className="row form-group">
                         <div className="input-field col s12">
-                            <Select defaultValue="" onChange={
+                            <Select showSearch defaultValue="" onChange={
                                 (e) => this.setState({vendername: e, trn_no: e.split('-')[1]})
                             } className="form-control form-control-lg " placeholder="Vendor Name">
                                 {options}

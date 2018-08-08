@@ -40,15 +40,17 @@ export const DATA_ACTIONS = {
       UPDATE_SALES:"UPDATE_SALES",
     GET_PURCHASE_DATE:"GET_PURCHASE_DATE",
     GET_SALES_DATE:"GET_SALES_DATE",
-    getPurchaseDate:(startDate,endDate)=>({
+    getPurchaseDate:(startDate,endDate,client)=>({
         type: DATA_ACTIONS.GET_PURCHASE_DATE,
         startDate:startDate,
-        endDate:endDate
+        endDate:endDate,
+        client:client
     }),
-    getSalesDate:(startDate,endDate)=>({
+    getSalesDate:(startDate,endDate,client)=>({
         type: DATA_ACTIONS.GET_SALES_DATE,
         startDate:startDate,
-        endDate:endDate
+        endDate:endDate,
+        client:client
     }),
     deleteVender:(venderid)=>({
         type: DATA_ACTIONS.DELETE_VENDER,

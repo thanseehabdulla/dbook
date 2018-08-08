@@ -33,8 +33,6 @@ class Topbar extends Component {
     <div className="collapse navbar-collapse" id="myNavbar">
       <ul className="nav navbar-nav">
 
-        {/* <li><a href="#">Page 2</a></li>
-        <li><a href="#">Page 3</a></li> */}
       </ul>
       <ul className="nav navbar-nav navbar-right">
         {/* <li><a href="#"><span className="glyphicon glyphicon-user"></span> Sign Up</a></li> */}
