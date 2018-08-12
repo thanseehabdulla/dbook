@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {Button, Form, Icon, Input, Table, Popconfirm} from 'antd';
 import {DATA_ACTIONS} from './../../../redux/data/actions'
 import ReactExport from "react-data-export";
+import Divider from "antd/es/divider/index";
 
 const ExcelFile = ReactExport.ExcelFile;
 const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
@@ -169,7 +170,7 @@ class AdminlistPassword extends Component {
         super(props);
         this.columns = [
             {
-                title: 'Name',
+                title: 'NAME',
                 dataIndex: 'name',
                 key: 'name',
                 editable: false,
@@ -208,7 +209,7 @@ class AdminlistPassword extends Component {
                 },
 
             },{
-                title: 'Email',
+                title: 'EMAIL',
                 dataIndex: 'email',
                 key: 'email',
                 render: (text, record) => {
@@ -223,7 +224,7 @@ class AdminlistPassword extends Component {
 
             },
             {
-                title: 'Password',
+                title: 'PASSWORD',
                 dataIndex: 'password',
                 key: 'password',
                 editable: true,
@@ -331,6 +332,7 @@ class AdminlistPassword extends Component {
 
         return (
             <div className="App" style={{marginTop: '30px'}}>
+                <Divider orientation="left">CHANGE PASSWORD / SEND BCC (click the Email)</Divider>
                 {datas &&
                 <Table components={components}
                        rowClassName={() => 'editable-row'}

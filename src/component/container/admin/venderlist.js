@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {Button, Form, Icon, Input, Popconfirm, Table} from 'antd';
 import {DATA_ACTIONS} from './../../../redux/data/actions'
 import ReactExport from "react-data-export";
+import Divider from "antd/es/divider/index";
 
 const ExcelFile = ReactExport.ExcelFile;
 const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
@@ -169,7 +170,7 @@ class Venderlist extends Component {
         super(props);
         this.columns = [
             {
-                title: 'Vender Name',
+                title: 'VENDOR NAME',
                 dataIndex: 'name',
                 key: 'name',
                 editable: true,
@@ -208,7 +209,7 @@ class Venderlist extends Component {
                 },
 
             }, {
-                title: 'Trn No',
+                title: 'TRN NO',
                 dataIndex: 'trn_no',
                 key: 'trn_no',
                 editable: true,
@@ -248,7 +249,7 @@ class Venderlist extends Component {
 
             },
             {
-                title: 'Action',
+                title: 'ACTION',
                 key: 'action',
                 render: (text, record) => {
                     return (
@@ -353,14 +354,14 @@ class Venderlist extends Component {
 
         return (
             <div className="App" style={{marginTop: '30px'}}>
-                {datas && <ExcelFile element={<button className="zoomIn btn btn-orange text-white ld-ext-right" style={{marginBottom:'20px'}}>Download Data</button>}>
+                {datas && <ExcelFile element={<button className="zoomIn btn btn-orange text-white ld-ext-right" style={{marginBottom:'20px'}}>DOWNLOAD DATA</button>}>
                     <ExcelSheet data={datas} name="User list">
-                        <ExcelColumn label="Vender Name" value="name"/>
+                        <ExcelColumn label="Vendor Name" value="name"/>
                         <ExcelColumn label="Trn No" value="trn_no"/>
                     </ExcelSheet>
                 </ExcelFile>}
 
-
+                <Divider orientation="left">VENDOR LIST</Divider>
                 {datas &&
                 <Table components={components}
                        rowClassName={() => 'editable-row'}

@@ -56,7 +56,7 @@ class VenderUp extends Component {
 
                         <div className="row form-group">
                             <div className="Input-field col s12">
-                                <Input name="vendername" placeholder="Vender Name" onBlur={this.changeValue.bind(this)} id="first_name" type="text" className="form-control form-control-lg "/>
+                                <Input name="vendername" placeholder="Vendor Name" onBlur={this.changeValue.bind(this)} id="first_name" type="text" className="form-control form-control-lg "/>
                                     {/*<label htmlFor="first_name">First Name</label>*/}
                             </div>
 

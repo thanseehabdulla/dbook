@@ -30,7 +30,7 @@ class SalesAdd extends Component {
     register() {
         let data = {
             date: this.state.date,
-            net_total: this.props.data.get('tax') + this.props.data.get('net'),
+            net_total: parseFloat(this.props.data.get('tax') + this.props.data.get('net')).toFixed(2),
             tax: this.state.tax,
             net_sales: this.state.net_sales,
             userid: localStorage.getItem('userid', 0)
@@ -56,7 +56,7 @@ class SalesAdd extends Component {
         // this.props.history.push('/dashboard/saleslist');
         // }
 
-        const totals = this.props.data.get('tax') + this.props.data.get('net');
+        const totals = parseFloat(this.props.data.get('tax') + this.props.data.get('net')).toFixed(2);
 
         // console.log(totals)
 
@@ -67,7 +67,7 @@ class SalesAdd extends Component {
                     <div className="row form-group">
                         <div className="input-field col s12">
 
-                            <DatePicker name="date" Placeholder="date" format={dateFormat}
+                            <DatePicker name="date" Placeholder="DATE" format={dateFormat}
                                         onChange={(date: moment, dateString: string) => {
                                             this.setState({date: dateString})
                                         }} className="form-control form-control-lg  "/>
@@ -82,7 +82,7 @@ class SalesAdd extends Component {
 
                     <div className="row form-group">
                         <div className="input-field col s12">
-                            <input name="net_sales" placeholder="Net sales" onChange={(e) => {
+                            <input name="net_sales" placeholder="NET SALES" onChange={(e) => {
                                 const {net} = this.props
                                 net(e.target.value);
                             }
@@ -96,7 +96,7 @@ class SalesAdd extends Component {
 
                     <div className="row form-group">
                         <div className="input-field col s12">
-                            <input name="tax" placeholder="Tax" onChange={(e) => {
+                            <input name="tax" placeholder="TAX" onChange={(e) => {
                                 const {tax} = this.props
                                 tax(e.target.value);
                             }
@@ -110,7 +110,7 @@ class SalesAdd extends Component {
                     <div className="row form-group">
                         <div className="input-field col s12">
 
-                            <input name="net_total" placeholder="Net total" disabled value={totals}
+                            <input name="net_total" placeholder="NET TOTAL" disabled value={totals}
                                    onChange={this.changeValue.bind(this)} type="number"
                                    className="form-control form-control-lg  "/>
 
@@ -122,7 +122,7 @@ class SalesAdd extends Component {
                 </div>
                 {this.state.spin && <Spin/>}
                 <Button className="btn btn-orange btn-block text-white btn-lg ld-ext-right" type="primary" style={{width:'200px'}} onClick={this.register.bind(this)}><Icon
-                    type="save"/>Save
+                    type="save"/>SAVE
                 </Button>
             </div>
         );

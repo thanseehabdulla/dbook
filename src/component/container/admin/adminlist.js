@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {Button, Form, Icon, Input, Popconfirm, Table} from 'antd';
 import {DATA_ACTIONS} from './../../../redux/data/actions'
 import ReactExport from "react-data-export";
+import Divider from "antd/es/divider/index";
 
 const ExcelFile = ReactExport.ExcelFile;
 const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
@@ -170,7 +171,7 @@ class Adminlist extends Component {
         super(props);
         this.columns = [
             {
-                title: 'Name',
+                title: 'NAME',
                 dataIndex: 'name',
                 key: 'name',
                 editable: true,
@@ -209,7 +210,7 @@ class Adminlist extends Component {
                 },
 
             }, {
-                title: 'Email',
+                title: 'EMAIL',
                 dataIndex: 'email',
                 key: 'email',
                 editable: true,
@@ -248,7 +249,7 @@ class Adminlist extends Component {
                 },
 
             }, {
-                title: 'Username',
+                title: 'USERNAME',
                 dataIndex: 'username',
                 key: 'username',
                 editable: true,
@@ -286,23 +287,23 @@ class Adminlist extends Component {
                     ) : text;
                 },
             }, {
-                title: 'Phone',
+                title: 'PHONE',
                 dataIndex: 'phone',
                 key: 'phone',
                 editable: true,
             }, {
-                title: 'Address',
+                title: 'ADDRESS',
                 dataIndex: 'address',
                 key: 'address',
                 editable: true,
             }, {
-                title: 'Level',
+                title: 'LEVEL',
                 dataIndex: 'level',
                 key: 'level',
                 editable: true,
             },
             {
-                title: 'Action',
+                title: 'ACTION',
                 key: 'action',
                 render: (text, record) => {
                     return (
@@ -407,7 +408,7 @@ class Adminlist extends Component {
 
         return (
             <div className="App" style={{marginTop: '30px'}}>
-                {datas && <ExcelFile element={<button className="zoomIn btn btn-orange text-white ld-ext-right" style={{marginBottom:'20px'}}>Download Data</button>}>
+                {datas && <ExcelFile element={<button className="zoomIn btn btn-orange text-white ld-ext-right" style={{marginBottom:'20px',fontWeight:'bold'}}>DOWNLOAD DATA</button>}>
                     <ExcelSheet data={datas} name="User list">
                         <ExcelColumn label="Name" value="name"/>
                         <ExcelColumn label="Email" value="email"/>
@@ -421,7 +422,7 @@ class Adminlist extends Component {
                     </ExcelSheet>
                 </ExcelFile>}
 
-
+                <Divider orientation="left">USER DATA</Divider>
                 {datas &&
                 <Table components={components}
                        rowClassName={() => 'editable-row'}

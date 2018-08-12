@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {Button, Form, Icon, Input, Popconfirm, Table} from 'antd';
 import {DATA_ACTIONS} from './../../../redux/data/actions'
 import ReactExport from "react-data-export";
+import Divider from "antd/es/divider/index";
 
 const ExcelFile = ReactExport.ExcelFile;
 const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
@@ -146,7 +147,7 @@ class Saleslist extends Component {
             if (prop !== 'net_total')
                 rowStr[prop] = row[prop];
         }
-          rowStr['net_total'] = (parseFloat(rowStr['net_sales']) + parseFloat(rowStr['tax'])).toString();
+          rowStr['net_total'] = (parseFloat(rowStr['net_sales']) + parseFloat(rowStr['tax'])).toFixed(2).toString();
         if (window.confirm('Do you want to save edit')) {
             const {updateSales} = this.props;
             updateSales(rowStr);
@@ -171,7 +172,7 @@ class Saleslist extends Component {
         super(props);
         this.columns = [
             {
-                title: 'Date',
+                title: 'DATE',
                 dataIndex: 'date',
                 key: 'date',
                  editable: true,
@@ -210,26 +211,32 @@ class Saleslist extends Component {
                 },
 
             }, {
-                title: 'Net Sales',
+                title: 'NET SALES',
                 dataIndex: 'net_sales',
                  editable: true,
                 key: 'net_sales'
 
 
             }, {
-                title: 'Tax',
+                title: 'TAX',
                 dataIndex: 'tax',
                  editable: true,
                 key: 'tax'
 
             }, {
-                title: 'Net Total',
+                title: 'NET TOTAL',
                 dataIndex: 'net_total',
-                key: 'net_total'
+                key: 'net_total',
+                render: (text, record) => {
+                    return (
+                        (parseFloat(record.net_total).toFixed(2)).toString()
+                    );
+
+                }
 
             },
             {
-                title: 'Action',
+                title: 'ACTION',
                 key: 'action',
                 render: (text, record) => {
                     return (
@@ -334,7 +341,8 @@ class Saleslist extends Component {
 
         return (
             <div className="App" style={{marginTop: '30px'}}>
-                {datas && localStorage.getItem('level') === 'admin' && <ExcelFile element={<button className="zoomIn btn btn-orange text-white ld-ext-right" style={{marginBottom:'20px'}}>Download Data</button>}>
+                <Divider orientation="left">SALES LIST </Divider>
+                {datas && localStorage.getItem('level') === 'admin' && <ExcelFile element={<button className="zoomIn btn btn-orange text-white ld-ext-right" style={{marginBottom:'20px'}}>DOWNLOAD DATA</button>}>
                     <ExcelSheet data={datas} name="User list">
                         <ExcelColumn label="Date"
                                      value="date"/>

@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {Button, Form, Icon, Input, Popconfirm, Table} from 'antd';
 import {DATA_ACTIONS} from './../../../redux/data/actions'
 import ReactExport from "react-data-export";
+import Divider from "antd/es/divider/index";
 
 const ExcelFile = ReactExport.ExcelFile;
 const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
@@ -146,7 +147,7 @@ class Purchaselist extends Component {
              if (prop !== 'total')
             rowStr[prop] = row[prop];
         }
-        rowStr['total'] = (parseFloat(rowStr['amount']) + parseFloat(rowStr['vat'])).toString();
+        rowStr['total'] = (parseFloat(rowStr['amount']) + parseFloat(rowStr['vat'])).toFixed(2).toString();
         if (window.confirm('Do you want to save edit')) {
             const {updatePurchase} = this.props;
             updatePurchase(rowStr);
@@ -171,7 +172,7 @@ class Purchaselist extends Component {
         super(props);
         this.columns = [
             {
-                title: 'Vender Name',
+                title: 'VENDOR NAME',
                 dataIndex: 'vendername',
                 key: 'vendername',
                   editable: true,
@@ -210,7 +211,7 @@ class Purchaselist extends Component {
                 },
 
             }, {
-                title: 'Trn No',
+                title: 'TRN NO',
                 dataIndex: 'trn_no',
                 key: 'trn_no',
                   editable: true,
@@ -250,7 +251,7 @@ class Purchaselist extends Component {
 
 
             }, {
-                title: 'Date Invoice',
+                title: 'DATE INVOICE',
                 dataIndex: 'date_invoice',
                 key: 'date_invoice',
                   editable: true,
@@ -290,25 +291,31 @@ class Purchaselist extends Component {
 
 
             }, {
-                title: 'Amount',
+                title: 'AMOUNT',
                 dataIndex: 'amount',
                   editable: true,
                 key: 'amount'
 
 
             }, {
-                title: 'Vat',
+                title: 'VAT',
                 dataIndex: 'vat',
                   editable: true,
                 key: 'vat'
 
             }, {
-                title: 'Total',
+                title: 'TOTAL',
                 dataIndex: 'total',
-                key: 'total'
+                key: 'total',
+                render: (text, record) => {
+                    return (
+                       (parseFloat(record.total).toFixed(2)).toString()
+                    );
+
+                }
             },
             {
-                title: 'Action',
+                title: 'ACTION',
                 key: 'action',
                 render: (text, record) => {
                     return (
@@ -413,7 +420,8 @@ class Purchaselist extends Component {
 
         return (
             <div className="App" style={{marginTop: '30px'}}>
-                {datas && localStorage.getItem('level') === 'admin' && <ExcelFile element={<button className="zoomIn btn btn-orange text-white ld-ext-right" style={{marginBottom:'20px'}}>Download Data</button>}>
+                <Divider orientation="left">PURCHASE LIST </Divider>
+                {datas && localStorage.getItem('level') === 'admin' && <ExcelFile element={<button className="zoomIn btn btn-orange text-white ld-ext-right" style={{marginBottom:'20px'}}>DOWNLOAD DATA</button>}>
                     <ExcelSheet data={datas} name="User list">
                         <ExcelColumn label="invoice_number"
                                      value="invoice_number"/>

@@ -4,6 +4,7 @@ import {Button, DatePicker, Form, Icon, Input, Popconfirm, Table} from 'antd';
 import {DATA_ACTIONS} from './../../../redux/data/actions'
 import ReactExport from "react-data-export";
 import { Select } from 'antd';
+import Divider from "antd/es/divider/index";
 const {MonthPicker, RangePicker, WeekPicker} = DatePicker;
 const Option = Select.Option
 const ExcelFile = ReactExport.ExcelFile;
@@ -174,7 +175,7 @@ class Saleslist extends Component {
         super(props);
         this.columns = [
             {
-                title: 'Date',
+                title: 'DATE',
                 dataIndex: 'date',
                 key: 'date',
                 filterDropdown: ({setSelectedKeys, selectedKeys, confirm, clearFilters}) => (
@@ -212,23 +213,23 @@ class Saleslist extends Component {
                 },
 
             }, {
-                title: 'Net Sales',
+                title: 'NET SALES',
                 dataIndex: 'net_sales',
                 key: 'net_sales'
 
             }, {
-                title: 'Tax',
+                title: 'TAX',
                 dataIndex: 'tax',
                 key: 'tax'
 
             }, {
-                title: 'Net Total',
+                title: 'NET TOTAL',
                 dataIndex: 'net_total',
                 key: 'net_total'
 
             },
             {
-                title: 'Action',
+                title: 'ACTION',
                 key: 'action',
                 render: (text, record) => {
                     return (
@@ -357,11 +358,11 @@ const userdatas = this.props.data ? this.props.data.get('userdata') : {}
         return (
             <div className="App" style={{marginTop: '30px'}}>
                 {/*<Input placeholder="Vender Name" onBlur={this.saveVenderName.bind(this)}/>*/}
-
+                <Divider orientation="left">SHOW SALES LIST BASED ON CLIENT WITH DATE</Divider>
 <Select
     showSearch
     style={{ width: 200 }}
-    placeholder="Select a person"
+    placeholder="Select a client"
     optionFilterProp="children"
     onChange={this.handleChange.bind(this)}
     filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}

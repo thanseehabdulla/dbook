@@ -62,20 +62,20 @@ class AdminDashboard extends Component {
                             theme="dark"
                         >
 
-                            <SubMenu key="sub1" title={<span><Icon type="user"/><span>User</span></span>}>
-                                <Menu.Item key="1"><a href="/admindashboard/add">Add a user</a></Menu.Item>
-                                <Menu.Item key="2"><a href="/admindashboard/home">List user</a></Menu.Item>
-                                <Menu.Item key="3"><a href="/admindashboard/password">Modify Password</a></Menu.Item>
+                            <SubMenu key="sub1" title={<span><Icon type="user"/><span>USER</span></span>}>
+                                <Menu.Item key="1"><a href="/admindashboard/add">ADD USER</a></Menu.Item>
+                                <Menu.Item key="2"><a href="/admindashboard/home">LIST USER</a></Menu.Item>
+                                <Menu.Item key="3"><a href="/admindashboard/password">MODIFY PASSWORD</a></Menu.Item>
                             </SubMenu>
-                            <SubMenu key="sub2" title={<span><Icon type="tag"/><span>Vendor</span></span>}>
-                                <Menu.Item key="4"><a href="/admindashboard/vender">Add a vendor</a></Menu.Item>
-                                <Menu.Item key="5"><a href="/admindashboard/venderlist">List vendor</a></Menu.Item>
+                            <SubMenu key="sub2" title={<span><Icon type="tag"/><span>VENDOR</span></span>}>
+                                <Menu.Item key="4"><a href="/admindashboard/vender">ADD VENDOR</a></Menu.Item>
+                                <Menu.Item key="5"><a href="/admindashboard/venderlist">LIST VENDOR</a></Menu.Item>
                             </SubMenu>
                             <SubMenu key="sub3"
-                                     title={<span><Icon type="export"/><span>Report Generation</span></span>}>
-                                <Menu.Item key="6"><a href="/admindashboard/reportpurchase">purchase
-                                    report</a></Menu.Item>
-                                <Menu.Item key="7"><a href="/admindashboard/reportsales">sales report</a></Menu.Item>
+                                     title={<span><Icon type="export"/><span>REPORT GENERATION</span></span>}>
+                                <Menu.Item key="6"><a href="/admindashboard/reportpurchase">PURCHASE
+                                    REPORT</a></Menu.Item>
+                                <Menu.Item key="7"><a href="/admindashboard/reportsales">SALES REPORT</a></Menu.Item>
                             </SubMenu>
                         </Menu>
                     </Sider>

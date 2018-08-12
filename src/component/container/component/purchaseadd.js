@@ -42,7 +42,7 @@ class PurchaseAdd extends Component {
             vat: this.state.vat,
             userid: localStorage.getItem('userid', 0),
             invoice_number: this.state.invoice_number,
-            total: this.props.data.get('vat') + this.props.data.get('amnt')
+            total: parseFloat(this.props.data.get('vat') + this.props.data.get('amnt')).toFixed(2)
         }
 
         this.setState({
@@ -57,7 +57,7 @@ class PurchaseAdd extends Component {
 
     render() {
 
-        const totals = this.props.data.get('vat') + this.props.data.get('amnt');
+        const totals = parseFloat(this.props.data.get('vat') + this.props.data.get('amnt')).toFixed(2);
         const datas = this.props.data.get('venderdata')
 
         let options = (datas || []).map((item, index) => {
@@ -66,11 +66,12 @@ class PurchaseAdd extends Component {
 
         return (
             <div className="App overallpaddinglogin">
+
                 <div className="row form-group">
 
                     <div className="row form-group">
                         <div className="input-field col s12">
-                            <input name="invoice_number" placeholder="Invoice Number"
+                            <input name="invoice_number" placeholder="INVOICE NUMBER"
                                    onBlur={this.changeValue.bind(this)} type="text"
                                    className="form-control form-control-lg "/>
                             {/*<label htmlFor="password">Password</label>*/}
@@ -79,9 +80,9 @@ class PurchaseAdd extends Component {
 
                     <div className="row form-group">
                         <div className="input-field col s12">
-                            <Select showSearch defaultValue="" onChange={
+                            <Select showSearch placeholder="SELECT A VENDOR" onChange={
                                 (e) => this.setState({vendername: e, trn_no: e.split('-')[1]})
-                            } className="form-control form-control-lg " placeholder="Vendor Name">
+                            } className="form-control form-control-lg">
                                 {options}
                             </Select>
 
@@ -92,7 +93,7 @@ class PurchaseAdd extends Component {
                     </div>
                     <div className="row form-group">
                         <div className="input-field col s12">
-                            <input name="trn_no" value={this.state.trn_no} placeholder="Trn No" disabled
+                            <input name="trn_no" value={this.state.trn_no} placeholder="TRN NO" disabled
                                    onBlur={this.changeValue.bind(this)} type="text"
                                    className="form-control form-control-lg "/>
                             {/*<label htmlFor="password">Password</label>*/}
@@ -101,7 +102,7 @@ class PurchaseAdd extends Component {
 
                     <div className="row form-group">
                         <div className="input-field col s12">
-                            <DatePicker name="date" Placeholder="date" format={dateFormat}
+                            <DatePicker name="date" Placeholder="DATE" format={dateFormat}
                                         onChange={(date: moment, dateString: string) => {
                                             this.setState({date_invoice: dateString})
                                         }} className="form-control form-control-lg  "/>
@@ -112,7 +113,7 @@ class PurchaseAdd extends Component {
 
                     <div className="row form-group">
                         <div className="input-field col s12">
-                            <input name="amount" placeholder="Amount" onChange={(e) => {
+                            <input name="amount" placeholder="AMOUNT" onChange={(e) => {
                                 const {amnt} = this.props;
                                 amnt(e.target.value);
                             }
@@ -124,7 +125,7 @@ class PurchaseAdd extends Component {
 
                     <div className="row form-group">
                         <div className="input-field col s12">
-                            <input name="vat" placeholder="Vat" onChange={(e) => {
+                            <input name="vat" placeholder="VAT" onChange={(e) => {
                                 const {vat} = this.props;
                                 vat(e.target.value);
                             }
@@ -136,8 +137,8 @@ class PurchaseAdd extends Component {
 
                     <div className="row form-group">
                         <div className="input-field col s12">
-                            <input name="total" placeholder="Total" value={totals} onBlur={this.changeValue.bind(this)}
-                                   type="number" className="form-control form-control-lg "/>
+                            <input name="total" placeholder="TOTAL" value={totals} onBlur={this.changeValue.bind(this)}
+                                   type="number" className="form-control form-control-lg" disabled={true}/>
                             {/*<label htmlFor="password">Password</label>*/}
                         </div>
                     </div>
@@ -147,7 +148,7 @@ class PurchaseAdd extends Component {
                 {this.state.spin && <Spin/>}
                 <Button className="btn btn-orange btn-block text-white btn-lg ld-ext-right" type="primary"
                         style={{width: '200px'}} onClick={this.register.bind(this)}><Icon
-                    type="save"/>Save</Button>
+                    type="save"/>SAVE</Button>
             </div>
         );
     }

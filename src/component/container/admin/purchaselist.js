@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {Button, DatePicker, Form, Icon, Input, Popconfirm, Table, Select} from 'antd';
 import {DATA_ACTIONS} from './../../../redux/data/actions'
 import ReactExport from "react-data-export";
+import Divider from "antd/es/divider/index";
 const {MonthPicker, RangePicker, WeekPicker} = DatePicker;
 const Option = Select.Option
 const ExcelFile = ReactExport.ExcelFile;
@@ -173,7 +174,7 @@ class Purchaselist extends Component {
         super(props);
         this.columns = [
             {
-                title: 'Vender Name',
+                title: 'VENDOR NAME',
                 dataIndex: 'vendername',
                 key: 'vendername',
                 filterDropdown: ({setSelectedKeys, selectedKeys, confirm, clearFilters}) => (
@@ -211,32 +212,32 @@ class Purchaselist extends Component {
                 },
 
             }, {
-                title: 'Trn No',
+                title: 'TRN NO',
                 dataIndex: 'trn_no',
                 key: 'trn_no'
 
             }, {
-                title: 'Date Invoice',
+                title: 'DATE INVOICE',
                 dataIndex: 'date_invoice',
                 key: 'date_invoice'
 
             }, {
-                title: 'Amount',
+                title: 'AMOUNT',
                 dataIndex: 'amount',
                 key: 'amount'
 
             }, {
-                title: 'Vat',
+                title: 'VAT',
                 dataIndex: 'vat',
                 key: 'vat'
 
             }, {
-                title: 'Total',
+                title: 'TOTAL',
                 dataIndex: 'total',
                 key: 'total'
             },
             {
-                title: 'Action',
+                title: 'ACTION',
                 key: 'action',
                 render: (text, record) => {
                     return (
@@ -368,11 +369,11 @@ handleChange(e) {
         return (
             <div className="App" style={{marginTop: '30px'}}>
                 {/*<Input placeholder="Vender Name" onBlur={this.saveVenderName.bind(this)}/>*/}
-
+                <Divider orientation="left">SHOW PURCHASE LIST BASED ON CLIENT WITH DATE</Divider>
                   <Select
     showSearch
     style={{ width: 200 }}
-    placeholder="Select a person"
+    placeholder="Select a client"
     optionFilterProp="children"
     onChange={this.handleChange.bind(this)}
     filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
@@ -384,7 +385,7 @@ handleChange(e) {
                 <RangePicker format="MM-DD-YYYY" onChange={this.onChange.bind(this)}/>
                 <br/>
 
-                {datas && <ExcelFile element={<button className="zoomIn btn btn-orange text-white ld-ext-right" style={{margin: '20px 0px'}}>Download Data</button>}>
+                {datas && <ExcelFile element={<button className="zoomIn btn btn-orange text-white ld-ext-right" style={{margin: '20px 0px'}}>DOWNLOAD DATA</button>}>
                     <ExcelSheet data={datas} name="User list">
                         <ExcelColumn label="invoice_number"
                                      value="invoice_number"/>

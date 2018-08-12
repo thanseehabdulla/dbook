@@ -36,8 +36,8 @@ class Topbar extends Component {
       </ul>
       <ul className="nav navbar-nav navbar-right">
         {/* <li><a href="#"><span className="glyphicon glyphicon-user"></span> Sign Up</a></li> */}
-          <li><a style={{color:'white'}}><Icon type="user" />  Administrator</a></li>
-        <li><a onClick={this.logout.bind(this)}><Icon type="logout" />  Log Out</a></li>
+          <li><a style={{color:'white',fontweight:'bolder'}}><Icon type="user" />  ADMINISTRATOR</a></li>
+        <li><a onClick={this.logout.bind(this)}><Icon type="logout" />  LOG OUT</a></li>
       </ul>
     </div>
   </div>
