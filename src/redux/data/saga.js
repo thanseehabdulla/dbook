@@ -362,7 +362,7 @@ function* workerSalesDateSaga(payload) {
 function* workerPurchaseDateSaga(payload) {
     try {
         let body = {
-            url: API.PURCHASE_API+"/"+payload.startDate+"/"+payload.endDate+"/"+payload.client
+            url: API.PURCHASE_API+"/"+payload.startDate+"/"+payload.endDate+"/"+payload.client+"/"+payload.option
         }
         const response = yield call(REQUEST.getData, body);
         const data = response.data;

@@ -4,6 +4,8 @@ import {Button, DatePicker, Form, Icon, Input, Popconfirm, Table, Select} from '
 import {DATA_ACTIONS} from './../../../redux/data/actions'
 import ReactExport from "react-data-export";
 import Divider from "antd/es/divider/index";
+
+
 const {MonthPicker, RangePicker, WeekPicker} = DatePicker;
 const Option = Select.Option
 const ExcelFile = ReactExport.ExcelFile;
@@ -129,7 +131,10 @@ class Purchaselist extends Component {
         datas: null,
         searchText: '',
         vendername: null,
-        clientname:'default'
+        clientname:'default',
+        option:'created_at',
+        start:'',
+        end:''
     }
     onSelectChange = (selectedRowKeys) => {
         console.log('selectedRowKeys changed: ', selectedRowKeys);
@@ -256,9 +261,20 @@ class Purchaselist extends Component {
         // alert(date)
         // alert(dateString[0])
         // alert(dateString[1])
+        // const {getPurchaseDate} = this.props;
+        // const vendernam = (this.state.vendername !== null||this.state.vendername !== ' ')? this.state.vendername : 'blank'
+        // getPurchaseDate(dateString[0], dateString[1],this.state.clientname,this.state.option);
+        this.setState({start:dateString[0],end:dateString[1]})
+    }
+
+    onSubmit() {
+        // console.log(date, dateString);
+        // alert(date)
+        // alert(dateString[0])
+        // alert(dateString[1])
         const {getPurchaseDate} = this.props;
         // const vendernam = (this.state.vendername !== null||this.state.vendername !== ' ')? this.state.vendername : 'blank'
-        getPurchaseDate(dateString[0], dateString[1],this.state.clientname);
+        getPurchaseDate(this.state.start, this.state.end,this.state.clientname,this.state.option);
     }
 
     onAfterDeleteRow(rowKeys) {
@@ -332,6 +348,10 @@ handleChange(e) {
   this.setState({clientname: e});
    }
 
+   handleChange2(e) {
+  this.setState({option: e});
+   }
+
 
     render() {
          const userdatas = this.props.data ? this.props.data.get('userdata') : {}
@@ -381,8 +401,20 @@ handleChange(e) {
 {options}
 
   </Select>
+                <Select
+    showSearch
+    style={{ width: 200 }}
+    placeholder="Select a option"
+    optionFilterProp="children"
+    onChange={this.handleChange2.bind(this)}
+    filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
+  >
+<Option value="created_at" key="1">ENTRY DATE</Option>
+<Option value="purchase" key="2">DATE INVOICE</Option>
 
+  </Select>
                 <RangePicker format="MM-DD-YYYY" onChange={this.onChange.bind(this)}/>
+                <Button type="primary" onClick={this.onSubmit.bind(this)} icon="search">Search</Button>
                 <br/>
 
                 {datas && <ExcelFile element={<button className="zoomIn btn btn-orange text-white ld-ext-right" style={{margin: '20px 0px'}}>DOWNLOAD DATA</button>}>
