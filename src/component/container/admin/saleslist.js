@@ -225,7 +225,13 @@ class Saleslist extends Component {
             }, {
                 title: 'NET TOTAL',
                 dataIndex: 'net_total',
-                key: 'net_total'
+                key: 'net_total',
+                 render: (text, record) => {
+                    return (
+                       (parseFloat(record.net_total).toFixed(2)).toString()
+                    );
+
+                }
 
             },
             {
