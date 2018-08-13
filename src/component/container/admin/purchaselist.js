@@ -239,7 +239,13 @@ class Purchaselist extends Component {
             }, {
                 title: 'TOTAL',
                 dataIndex: 'total',
-                key: 'total'
+                key: 'total',
+                 render: (text, record) => {
+                    return (
+                       (parseFloat(record.total).toFixed(2)).toString()
+                    );
+
+                }
             },
             {
                 title: 'ACTION',
