@@ -14,7 +14,10 @@ export default class BaseApp extends Component {
 <Topbar/>
                 <div style={{}}>
                     <div style={{display:'inline'}}><img src="https://www.invoicing-software.com/assets/img/multi-platform-invoicing-medium.png" width={345}/></div>
-                    <div style={{display:'inline'}}><Login/></div>
+                    <div style={{display:'inline'}}>
+
+
+                        <Login/></div>
                     <br/>
 
                 </div>

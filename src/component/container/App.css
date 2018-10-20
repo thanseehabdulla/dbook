@@ -23,6 +23,69 @@
 }
 
 @keyframes App-logo-spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
+
+.app-btn {
+    width: 45%;
+    max-width: 160px;
+    color: #fff;
+    margin: 20px 10px;
+    text-align: left;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: "Lucida Grande", sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+.app-btn.blu {
+    background-color: #FF8C00;
+    transition: background-color 0.25s linear;
+    padding: 2px;
+    color: white;
+}
+
+.app-btn.blu:hover {
+    background-color: #454545;
+}
+
+.app-btn i {
+    width: 20%;
+    text-align: center;
+    color: white;
+    font-size: 28px;
+    margin-right: 7px;
+
+}
+
+.app-btn .big-txt {
+    font-size: 17px;
+    text-transform: capitalize;
+    color: white;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 768px) {
+    .flex {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .header-area {
+        background: #FF8C00 !important;
+    }
+}
+

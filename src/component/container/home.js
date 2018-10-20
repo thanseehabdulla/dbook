@@ -22,7 +22,7 @@ export default class Home extends Component {
         return (
             <div className="App">
 
-                <header >
+                 <div><header >
                     <Topbar/>
                 </header>
 
@@ -40,14 +40,17 @@ export default class Home extends Component {
                 </Animated>
                 <div className="container-fluid bg-3 text-center">
                     <Animated animationIn="fadeInLeft" animationOut="fadeOut" isVisible={true}>
+
              <Logins/>
+                        <h6><i>dBook is your comprehensive platform to manage everything you need to sell and grow your business</i></h6>
                     </Animated>
                     </div>
                     <br/><br/>
 
                         <footer className="container-fluid text-center" style={{backgroundColor:'#ff8c00',paddingTop:'5px'}}>
                             <p style={{color:'white'}}>&copy; 2018 dbook.com</p>
-                        </footer>
+                        </footer></div>
+
                 <BackTop />
 
             </div>

@@ -216,7 +216,7 @@ class AdminlistPassword extends Component {
                     return (
                         <Popconfirm title="Sure to send bcc?"
                                     onConfirm={() => window.location = 'https://mail.google.com/mail/?view=cm&fs=1&to=&su=SUBJECT&body=BODY&bcc=' + record.email}>
-                            <a href="javascript" target="_blank">{text}</a>
+                            <a target="_blank">{text}</a>
                         </Popconfirm>
                     );
 
@@ -231,7 +231,7 @@ class AdminlistPassword extends Component {
                 render: (text, record) => {
                     return (
 
-                        <a href="javascript" target="_blank">******</a>
+                        <a target="_blank">******</a>
 
                     );
 
